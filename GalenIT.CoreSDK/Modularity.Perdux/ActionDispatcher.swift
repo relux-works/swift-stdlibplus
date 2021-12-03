@@ -61,9 +61,13 @@ public class ActionDispatcher {
 
     public class func emitAsync<Action: PerduxAction>(_ actions: [Action]) {
         Action.executionQueue.async {
+
+            actions.forEach { action in
+                Logger.log(action)
+            }
+
             subscribers.forEach { subscriber in
                 actions.forEach { action in
-                    Logger.log(action)
                     subscriber.notify(action)
                 }
             }

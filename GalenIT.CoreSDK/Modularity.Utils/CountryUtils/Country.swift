@@ -1,13 +1,13 @@
 import Tagged
 import Foundation
 
-struct Country: Equatable, Hashable, Codable  {
-    let iso: Iso
-    let phoneCode: PhoneCode
-    let countryCode: CountryCode
-    let name: Name
+public struct Country: Equatable, Hashable, Codable  {
+    public let iso: Iso
+    public let phoneCode: PhoneCode
+    public let countryCode: CountryCode
+    public let name: Name
 
-    init(
+    public init(
             iso: String,
             countryCode: Int,
             phoneCode: Int,
@@ -19,12 +19,12 @@ struct Country: Equatable, Hashable, Codable  {
         self.name = .init(rawValue: name)
     }
 
-    static func ==(lhs: Country, rhs: Country) -> Bool {
+    public static func ==(lhs: Country, rhs: Country) -> Bool {
         lhs.iso == rhs.iso
     }
 }
 
-extension Country {
+public extension Country {
     enum _Iso {}
     enum _Name {}
     enum _PhoneCode {}
@@ -36,15 +36,15 @@ extension Country {
     typealias CountryCode = Tagged<_CountryCode, Int>
 }
 
-extension Country {
-    public var localizedName: String {
+public extension Country {
+    var localizedName: String {
         let locale = NSLocale.current as NSLocale
         let name = locale.displayName(forKey: .countryCode, value: iso.rawValue)
 
         return name ?? ""
     }
 
-    public var emoji: String {
+    var emoji: String {
         let iso = iso.rawValue.uppercased()
         let emoji = iso
                 .unicodeScalars

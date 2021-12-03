@@ -66,6 +66,10 @@
 		5E021AED2744F19F00773D0F /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB22744F19F00773D0F /* DateExt.swift */; };
 		5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB32744F19F00773D0F /* PrototypeMock.swift */; };
 		5E021AEF2744F19F00773D0F /* MainQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB42744F19F00773D0F /* MainQueueUtils.swift */; };
+		5ED22D292758DBD8005BF080 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D282758DBD8005BF080 /* DateUtils.swift */; };
+		5ED22D2F2758DC5E005BF080 /* CameraPermissionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */; };
+		5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */; };
+		5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +141,10 @@
 		5E021AB22744F19F00773D0F /* DateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		5E021AB32744F19F00773D0F /* PrototypeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeMock.swift; sourceTree = "<group>"; };
 		5E021AB42744F19F00773D0F /* MainQueueUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainQueueUtils.swift; sourceTree = "<group>"; };
+		5ED22D282758DBD8005BF080 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsHelper.swift; sourceTree = "<group>"; };
+		5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularProviderHelper.swift; sourceTree = "<group>"; };
+		5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularNetworkInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,8 @@
 		5E0219C02744DC7400773D0F /* GalenIT.CoreSDK */ = {
 			isa = PBXGroup;
 			children = (
+				5ED22D2C2758DC5E005BF080 /* Module.Telephony */,
+				5ED22D2A2758DC5E005BF080 /* Modules.Permissions */,
 				5E021A6D2744F19F00773D0F /* Modularity.Api */,
 				5E021A9C2744F19F00773D0F /* Modularity.Errors */,
 				5E021A902744F19F00773D0F /* Modularity.Networking */,
@@ -303,6 +313,7 @@
 		5E021AA52744F19F00773D0F /* Modularity.Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5ED22D272758DBD8005BF080 /* DateUtils */,
 				5E021AA62744F19F00773D0F /* CountryUtils */,
 				5E021AAA2744F19F00773D0F /* Extensions */,
 				5E021AB32744F19F00773D0F /* PrototypeMock.swift */,
@@ -334,6 +345,31 @@
 				5E021AB22744F19F00773D0F /* DateExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5ED22D272758DBD8005BF080 /* DateUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5ED22D282758DBD8005BF080 /* DateUtils.swift */,
+			);
+			path = DateUtils;
+			sourceTree = "<group>";
+		};
+		5ED22D2A2758DC5E005BF080 /* Modules.Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */,
+			);
+			path = Modules.Permissions;
+			sourceTree = "<group>";
+		};
+		5ED22D2C2758DC5E005BF080 /* Module.Telephony */ = {
+			isa = PBXGroup;
+			children = (
+				5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */,
+				5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */,
+			);
+			path = Module.Telephony;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,11 +498,14 @@
 				5E021AB62744F19F00773D0F /* ApiRequestType.swift in Sources */,
 				5E021ACE2744F19F00773D0F /* PartialFormatter.swift in Sources */,
 				5E021AC52744F19F00773D0F /* MetadataParsing.swift in Sources */,
+				5ED22D2F2758DC5E005BF080 /* CameraPermissionsHelper.swift in Sources */,
+				5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */,
 				5E021AC12744F19F00773D0F /* Bundle+Resources.swift in Sources */,
 				5E021AE02744F19F00773D0F /* SecureStorageError.swift in Sources */,
 				5E021AD32744F19F00773D0F /* PerduxState+ChangesType.swift in Sources */,
 				5E021AC42744F19F00773D0F /* MetadataTypes.swift in Sources */,
 				5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */,
+				5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */,
 				5E021AB82744F19F00773D0F /* ApiFetcher.swift in Sources */,
 				5E021ADE2744F19F00773D0F /* NSError.swift in Sources */,
 				5E021AE22744F19F00773D0F /* StorageType.swift in Sources */,
@@ -485,6 +524,7 @@
 				5E021AD42744F19F00773D0F /* Reducer.swift in Sources */,
 				5E021AED2744F19F00773D0F /* DateExt.swift in Sources */,
 				5E021AC32744F19F00773D0F /* RegexManager.swift in Sources */,
+				5ED22D292758DBD8005BF080 /* DateUtils.swift in Sources */,
 				5E021AD82744F19F00773D0F /* ActionDispatcher.swift in Sources */,
 				5E021AC62744F19F00773D0F /* ParseManager.swift in Sources */,
 				5E021ABA2744F19F00773D0F /* PhoneNum.swift in Sources */,
@@ -533,6 +573,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -598,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -656,6 +698,7 @@
 		5E0219D12744DC7400773D0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -684,6 +727,7 @@
 		5E0219D22744DC7400773D0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
