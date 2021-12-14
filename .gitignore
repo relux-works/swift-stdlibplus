@@ -94,4 +94,5 @@ xcodetest.xml
 build-files/
 *.xcworkspace/xcshareddata/swiftpm/
 Snapfile
-Archives/
+*.framework
+*.xcframework

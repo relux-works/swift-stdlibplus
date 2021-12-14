@@ -8,10 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E0219C72744DC7400773D0F /* GalenIT_CoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */; };
-		5E0219CC2744DC7400773D0F /* GalenIT_CoreSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0219CB2744DC7400773D0F /* GalenIT_CoreSDKTests.swift */; };
 		5E0219CD2744DC7400773D0F /* GalenIT_CoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E0219C12744DC7400773D0F /* GalenIT_CoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E021A262744DE6600773D0F /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 5E021A252744DE6600773D0F /* Tagged */; };
-		5E021A292744DEC200773D0F /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E021A282744DEC200773D0F /* KeychainAccess */; };
 		5E021AB52744F19F00773D0F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021A6E2744F19F00773D0F /* ApiError.swift */; };
 		5E021AB62744F19F00773D0F /* ApiRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021A6F2744F19F00773D0F /* ApiRequestType.swift */; };
 		5E021AB72744F19F00773D0F /* ApiSessionConfigBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021A702744F19F00773D0F /* ApiSessionConfigBuilder.swift */; };
@@ -66,10 +63,17 @@
 		5E021AED2744F19F00773D0F /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB22744F19F00773D0F /* DateExt.swift */; };
 		5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB32744F19F00773D0F /* PrototypeMock.swift */; };
 		5E021AEF2744F19F00773D0F /* MainQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB42744F19F00773D0F /* MainQueueUtils.swift */; };
+		5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64F72768B33600AB6DE1 /* KeychainAccess */; };
+		5E1B64FB2768B34B00AB6DE1 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64FA2768B34B00AB6DE1 /* Tagged */; };
+		5EA6479D275E264100024838 /* FaceRecognitionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */; };
+		5EA6479E275E264100024838 /* FaceFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479C275E264100024838 /* FaceFeatures.swift */; };
+		5EA647A0275E265C00024838 /* FaceRecognitionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */; };
+		5EA647A2275E26F600024838 /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA647A1275E26F600024838 /* UIImage+Transformations.swift */; };
 		5ED22D292758DBD8005BF080 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D282758DBD8005BF080 /* DateUtils.swift */; };
 		5ED22D2F2758DC5E005BF080 /* CameraPermissionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */; };
 		5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */; };
 		5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */; };
+		5EF570BF2768C27900F60C02 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF570BE2768C27900F60C02 /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +90,6 @@
 		5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalenIT_CoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0219C12744DC7400773D0F /* GalenIT_CoreSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalenIT_CoreSDK.h; sourceTree = "<group>"; };
 		5E0219C62744DC7400773D0F /* GalenIT.CoreSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalenIT.CoreSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E0219CB2744DC7400773D0F /* GalenIT_CoreSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalenIT_CoreSDKTests.swift; sourceTree = "<group>"; };
 		5E021A6E2744F19F00773D0F /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		5E021A6F2744F19F00773D0F /* ApiRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequestType.swift; sourceTree = "<group>"; };
 		5E021A702744F19F00773D0F /* ApiSessionConfigBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiSessionConfigBuilder.swift; sourceTree = "<group>"; };
@@ -141,10 +144,15 @@
 		5E021AB22744F19F00773D0F /* DateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		5E021AB32744F19F00773D0F /* PrototypeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeMock.swift; sourceTree = "<group>"; };
 		5E021AB42744F19F00773D0F /* MainQueueUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainQueueUtils.swift; sourceTree = "<group>"; };
+		5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionHelper.swift; sourceTree = "<group>"; };
+		5EA6479C275E264100024838 /* FaceFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceFeatures.swift; sourceTree = "<group>"; };
+		5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecognitionResult.swift; sourceTree = "<group>"; };
+		5EA647A1275E26F600024838 /* UIImage+Transformations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformations.swift"; sourceTree = "<group>"; };
 		5ED22D282758DBD8005BF080 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsHelper.swift; sourceTree = "<group>"; };
 		5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularProviderHelper.swift; sourceTree = "<group>"; };
 		5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularNetworkInfo.swift; sourceTree = "<group>"; };
+		5EF570BE2768C27900F60C02 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,8 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E021A292744DEC200773D0F /* KeychainAccess in Frameworks */,
-				5E021A262744DE6600773D0F /* Tagged in Frameworks */,
+				5E1B64FB2768B34B00AB6DE1 /* Tagged in Frameworks */,
+				5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,8 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				5E0219C02744DC7400773D0F /* GalenIT.CoreSDK */,
-				5E0219CA2744DC7400773D0F /* GalenIT.CoreSDKTests */,
 				5E0219BF2744DC7400773D0F /* Products */,
+				5E2E61E1275D074A002A873C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -189,29 +197,24 @@
 		5E0219C02744DC7400773D0F /* GalenIT.CoreSDK */ = {
 			isa = PBXGroup;
 			children = (
-				5ED22D2C2758DC5E005BF080 /* Module.Telephony */,
-				5ED22D2A2758DC5E005BF080 /* Modules.Permissions */,
-				5E021A6D2744F19F00773D0F /* Modularity.Api */,
-				5E021A9C2744F19F00773D0F /* Modularity.Errors */,
-				5E021A902744F19F00773D0F /* Modularity.Networking */,
-				5E021A922744F19F00773D0F /* Modularity.Perdux */,
-				5E021A732744F19F00773D0F /* Modularity.PhoneUtils */,
-				5E021AA02744F19F00773D0F /* Modularity.SecureStore */,
-				5E021AA52744F19F00773D0F /* Modularity.Utils */,
+				5EF570BD2768C26400F60C02 /* Location */,
+				5E021AA62744F19F00773D0F /* Country */,
+				5EA6479A275E264100024838 /* Recognition */,
+				5ED22D2C2758DC5E005BF080 /* Telephony */,
+				5ED22D2A2758DC5E005BF080 /* Permissions */,
+				5E021A6D2744F19F00773D0F /* Api */,
+				5E021A9C2744F19F00773D0F /* Errors */,
+				5E021A902744F19F00773D0F /* Networking */,
+				5E021A922744F19F00773D0F /* Perdux */,
+				5E021A732744F19F00773D0F /* PhoneUtils */,
+				5E021AA02744F19F00773D0F /* SecureStore */,
+				5E021AA52744F19F00773D0F /* Utils */,
 				5E0219C12744DC7400773D0F /* GalenIT_CoreSDK.h */,
 			);
 			path = GalenIT.CoreSDK;
 			sourceTree = "<group>";
 		};
-		5E0219CA2744DC7400773D0F /* GalenIT.CoreSDKTests */ = {
-			isa = PBXGroup;
-			children = (
-				5E0219CB2744DC7400773D0F /* GalenIT_CoreSDKTests.swift */,
-			);
-			path = GalenIT.CoreSDKTests;
-			sourceTree = "<group>";
-		};
-		5E021A6D2744F19F00773D0F /* Modularity.Api */ = {
+		5E021A6D2744F19F00773D0F /* Api */ = {
 			isa = PBXGroup;
 			children = (
 				5E021A6E2744F19F00773D0F /* ApiError.swift */,
@@ -220,10 +223,10 @@
 				5E021A712744F19F00773D0F /* ApiFetcher.swift */,
 				5E021A722744F19F00773D0F /* ApiEndpoint.swift */,
 			);
-			path = Modularity.Api;
+			path = Api;
 			sourceTree = "<group>";
 		};
-		5E021A732744F19F00773D0F /* Modularity.PhoneUtils */ = {
+		5E021A732744F19F00773D0F /* PhoneUtils */ = {
 			isa = PBXGroup;
 			children = (
 				5E021A742744F19F00773D0F /* PhoneNum.swift */,
@@ -232,7 +235,7 @@
 				5E021A772744F19F00773D0F /* PhoneUtils.swift */,
 				5E021A782744F19F00773D0F /* PhoneNumberKit */,
 			);
-			path = Modularity.PhoneUtils;
+			path = PhoneUtils;
 			sourceTree = "<group>";
 		};
 		5E021A782744F19F00773D0F /* PhoneNumberKit */ = {
@@ -265,15 +268,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		5E021A902744F19F00773D0F /* Modularity.Networking */ = {
+		5E021A902744F19F00773D0F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				5E021A912744F19F00773D0F /* NetworkService.swift */,
 			);
-			path = Modularity.Networking;
+			path = Networking;
 			sourceTree = "<group>";
 		};
-		5E021A922744F19F00773D0F /* Modularity.Perdux */ = {
+		5E021A922744F19F00773D0F /* Perdux */ = {
 			isa = PBXGroup;
 			children = (
 				5E021A932744F19F00773D0F /* PerduxState+ChangesType.swift */,
@@ -286,20 +289,20 @@
 				5E021A9A2744F19F00773D0F /* PerduxSaga.swift */,
 				5E021A9B2744F19F00773D0F /* PerduxState.swift */,
 			);
-			path = Modularity.Perdux;
+			path = Perdux;
 			sourceTree = "<group>";
 		};
-		5E021A9C2744F19F00773D0F /* Modularity.Errors */ = {
+		5E021A9C2744F19F00773D0F /* Errors */ = {
 			isa = PBXGroup;
 			children = (
 				5E021A9D2744F19F00773D0F /* ErrorViolationType.swift */,
 				5E021A9E2744F19F00773D0F /* IAppError.swift */,
 				5E021A9F2744F19F00773D0F /* NSError.swift */,
 			);
-			path = Modularity.Errors;
+			path = Errors;
 			sourceTree = "<group>";
 		};
-		5E021AA02744F19F00773D0F /* Modularity.SecureStore */ = {
+		5E021AA02744F19F00773D0F /* SecureStore */ = {
 			isa = PBXGroup;
 			children = (
 				5E021AA12744F19F00773D0F /* SecureStore.swift */,
@@ -307,34 +310,34 @@
 				5E021AA32744F19F00773D0F /* SecureStorageConsts.swift */,
 				5E021AA42744F19F00773D0F /* StorageType.swift */,
 			);
-			path = Modularity.SecureStore;
+			path = SecureStore;
 			sourceTree = "<group>";
 		};
-		5E021AA52744F19F00773D0F /* Modularity.Utils */ = {
+		5E021AA52744F19F00773D0F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				5ED22D272758DBD8005BF080 /* DateUtils */,
-				5E021AA62744F19F00773D0F /* CountryUtils */,
 				5E021AAA2744F19F00773D0F /* Extensions */,
 				5E021AB32744F19F00773D0F /* PrototypeMock.swift */,
 				5E021AB42744F19F00773D0F /* MainQueueUtils.swift */,
 			);
-			path = Modularity.Utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
-		5E021AA62744F19F00773D0F /* CountryUtils */ = {
+		5E021AA62744F19F00773D0F /* Country */ = {
 			isa = PBXGroup;
 			children = (
 				5E021AA72744F19F00773D0F /* CountryResource.swift */,
 				5E021AA82744F19F00773D0F /* Country.swift */,
 				5E021AA92744F19F00773D0F /* CountryHelper.swift */,
 			);
-			path = CountryUtils;
+			path = Country;
 			sourceTree = "<group>";
 		};
 		5E021AAA2744F19F00773D0F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5EA647A1275E26F600024838 /* UIImage+Transformations.swift */,
 				5E021AAB2744F19F00773D0F /* DataExt.swift */,
 				5E021AAC2744F19F00773D0F /* BoolExt.swift */,
 				5E021AAD2744F19F00773D0F /* StringExt.swift */,
@@ -347,6 +350,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5E2E61E1275D074A002A873C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5EA6479A275E264100024838 /* Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */,
+				5EA6479C275E264100024838 /* FaceFeatures.swift */,
+				5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */,
+			);
+			path = Recognition;
+			sourceTree = "<group>";
+		};
 		5ED22D272758DBD8005BF080 /* DateUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,21 +375,29 @@
 			path = DateUtils;
 			sourceTree = "<group>";
 		};
-		5ED22D2A2758DC5E005BF080 /* Modules.Permissions */ = {
+		5ED22D2A2758DC5E005BF080 /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
 				5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */,
 			);
-			path = Modules.Permissions;
+			path = Permissions;
 			sourceTree = "<group>";
 		};
-		5ED22D2C2758DC5E005BF080 /* Module.Telephony */ = {
+		5ED22D2C2758DC5E005BF080 /* Telephony */ = {
 			isa = PBXGroup;
 			children = (
 				5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */,
 				5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */,
 			);
-			path = Module.Telephony;
+			path = Telephony;
+			sourceTree = "<group>";
+		};
+		5EF570BD2768C26400F60C02 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				5EF570BE2768C27900F60C02 /* LocationHelper.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,8 +429,8 @@
 			);
 			name = GalenIT.CoreSDK;
 			packageProductDependencies = (
-				5E021A252744DE6600773D0F /* Tagged */,
-				5E021A282744DEC200773D0F /* KeychainAccess */,
+				5E1B64F72768B33600AB6DE1 /* KeychainAccess */,
+				5E1B64FA2768B34B00AB6DE1 /* Tagged */,
 			);
 			productName = GalenIT.CoreSDK;
 			productReference = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */;
@@ -454,8 +482,8 @@
 			);
 			mainGroup = 5E0219B42744DC7400773D0F;
 			packageReferences = (
-				5E021A242744DE6600773D0F /* XCRemoteSwiftPackageReference "swift-tagged" */,
-				5E021A272744DEC200773D0F /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */,
 			);
 			productRefGroup = 5E0219BF2744DC7400773D0F /* Products */;
 			projectDirPath = "";
@@ -491,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E021AD92744F19F00773D0F /* PerduxEffect.swift in Sources */,
+				5EA647A0275E265C00024838 /* FaceRecognitionResult.swift in Sources */,
 				5E021AD72744F19F00773D0F /* Logger.swift in Sources */,
 				5E021AB72744F19F00773D0F /* ApiSessionConfigBuilder.swift in Sources */,
 				5E021AC22744F19F00773D0F /* PhoneNumber.swift in Sources */,
@@ -501,10 +530,12 @@
 				5ED22D2F2758DC5E005BF080 /* CameraPermissionsHelper.swift in Sources */,
 				5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */,
 				5E021AC12744F19F00773D0F /* Bundle+Resources.swift in Sources */,
+				5EF570BF2768C27900F60C02 /* LocationHelper.swift in Sources */,
 				5E021AE02744F19F00773D0F /* SecureStorageError.swift in Sources */,
 				5E021AD32744F19F00773D0F /* PerduxState+ChangesType.swift in Sources */,
 				5E021AC42744F19F00773D0F /* MetadataTypes.swift in Sources */,
 				5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */,
+				5EA6479E275E264100024838 /* FaceFeatures.swift in Sources */,
 				5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */,
 				5E021AB82744F19F00773D0F /* ApiFetcher.swift in Sources */,
 				5E021ADE2744F19F00773D0F /* NSError.swift in Sources */,
@@ -531,6 +562,7 @@
 				5E021ABD2744F19F00773D0F /* PhoneUtils.swift in Sources */,
 				5E021ABB2744F19F00773D0F /* PhoneParseResult.swift in Sources */,
 				5E021AE82744F19F00773D0F /* StringExt.swift in Sources */,
+				5EA647A2275E26F600024838 /* UIImage+Transformations.swift in Sources */,
 				5E021ACD2744F19F00773D0F /* MetadataManager.swift in Sources */,
 				5E021AE52744F19F00773D0F /* CountryHelper.swift in Sources */,
 				5E021AE12744F19F00773D0F /* SecureStorageConsts.swift in Sources */,
@@ -538,6 +570,7 @@
 				5E021ABC2744F19F00773D0F /* PhoneFormat.swift in Sources */,
 				5E021AD62744F19F00773D0F /* PerduxStore.swift in Sources */,
 				5E021AE72744F19F00773D0F /* BoolExt.swift in Sources */,
+				5EA6479D275E264100024838 /* FaceRecognitionHelper.swift in Sources */,
 				5E021AE32744F19F00773D0F /* CountryResource.swift in Sources */,
 				5E021ADA2744F19F00773D0F /* PerduxSaga.swift in Sources */,
 				5E021AE42744F19F00773D0F /* Country.swift in Sources */,
@@ -554,7 +587,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E0219CC2744DC7400773D0F /* GalenIT_CoreSDKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -830,15 +862,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5E021A242744DE6600773D0F /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-tagged";
-			requirement = {
-				kind = exactVersion;
-				version = 0.6.0;
-			};
-		};
-		5E021A272744DEC200773D0F /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -846,18 +870,26 @@
 				version = 4.2.2;
 			};
 		};
+		5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-tagged";
+			requirement = {
+				kind = exactVersion;
+				version = 0.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5E021A252744DE6600773D0F /* Tagged */ = {
+		5E1B64F72768B33600AB6DE1 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E021A242744DE6600773D0F /* XCRemoteSwiftPackageReference "swift-tagged" */;
-			productName = Tagged;
-		};
-		5E021A282744DEC200773D0F /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E021A272744DEC200773D0F /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		5E1B64FA2768B34B00AB6DE1 /* Tagged */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */;
+			productName = Tagged;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
