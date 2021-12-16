@@ -96,3 +96,4 @@ build-files/
 Snapfile
 *.framework
 *.xcframework
+*.doccarchive
