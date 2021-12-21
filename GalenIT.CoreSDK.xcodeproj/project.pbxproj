@@ -64,6 +64,9 @@
 		5E021AEF2744F19F00773D0F /* MainQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB42744F19F00773D0F /* MainQueueUtils.swift */; };
 		5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64F72768B33600AB6DE1 /* KeychainAccess */; };
 		5E1B64FB2768B34B00AB6DE1 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64FA2768B34B00AB6DE1 /* Tagged */; };
+		5E5237672770CF20005BB76E /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5237662770CF20005BB76E /* DoubleExt.swift */; };
+		5E5FF2192771C19A009365B9 /* GalenIT_CoreSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */; };
+		5E5FF21A2771C19A009365B9 /* GalenIT_CoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */; };
 		5EA6479D275E264100024838 /* FaceRecognitionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */; };
 		5EA6479E275E264100024838 /* FaceFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479C275E264100024838 /* FaceFeatures.swift */; };
 		5EA647A0275E265C00024838 /* FaceRecognitionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */; };
@@ -74,6 +77,16 @@
 		5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */; };
 		5EF570BF2768C27900F60C02 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF570BE2768C27900F60C02 /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E5FF21B2771C19A009365B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0219B52744DC7400773D0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E0219BD2744DC7400773D0F;
+			remoteInfo = GalenIT.CoreSDK;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalenIT_CoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +145,9 @@
 		5E021AB22744F19F00773D0F /* DateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		5E021AB32744F19F00773D0F /* PrototypeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeMock.swift; sourceTree = "<group>"; };
 		5E021AB42744F19F00773D0F /* MainQueueUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainQueueUtils.swift; sourceTree = "<group>"; };
+		5E5237662770CF20005BB76E /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		5E5FF2162771C19A009365B9 /* GalenIT_CoreSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalenIT_CoreSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalenIT_CoreSDKTests.swift; sourceTree = "<group>"; };
 		5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionHelper.swift; sourceTree = "<group>"; };
 		5EA6479C275E264100024838 /* FaceFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceFeatures.swift; sourceTree = "<group>"; };
 		5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecognitionResult.swift; sourceTree = "<group>"; };
@@ -153,6 +169,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E5FF2132771C19A009365B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E5FF21A2771C19A009365B9 /* GalenIT_CoreSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -160,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				5E0219C02744DC7400773D0F /* GalenIT.CoreSDK */,
+				5E5FF2172771C19A009365B9 /* GalenIT_CoreSDKTests */,
 				5E0219BF2744DC7400773D0F /* Products */,
 				5E2E61E1275D074A002A873C /* Frameworks */,
 			);
@@ -169,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */,
+				5E5FF2162771C19A009365B9 /* GalenIT_CoreSDKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,6 +351,7 @@
 				5E021AB02744F19F00773D0F /* ArrayExt.swift */,
 				5E021AB12744F19F00773D0F /* CharacterSetExt.swift */,
 				5E021AB22744F19F00773D0F /* DateExt.swift */,
+				5E5237662770CF20005BB76E /* DoubleExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +361,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E5FF2172771C19A009365B9 /* GalenIT_CoreSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */,
+			);
+			path = GalenIT_CoreSDKTests;
 			sourceTree = "<group>";
 		};
 		5EA6479A275E264100024838 /* Recognition */ = {
@@ -415,6 +450,24 @@
 			productReference = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		5E5FF2152771C19A009365B9 /* GalenIT_CoreSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E5FF21F2771C19A009365B9 /* Build configuration list for PBXNativeTarget "GalenIT_CoreSDKTests" */;
+			buildPhases = (
+				5E5FF2122771C19A009365B9 /* Sources */,
+				5E5FF2132771C19A009365B9 /* Frameworks */,
+				5E5FF2142771C19A009365B9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E5FF21C2771C19A009365B9 /* PBXTargetDependency */,
+			);
+			name = GalenIT_CoreSDKTests;
+			productName = GalenIT_CoreSDKTests;
+			productReference = 5E5FF2162771C19A009365B9 /* GalenIT_CoreSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -422,11 +475,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					5E0219BD2744DC7400773D0F = {
 						CreatedOnToolsVersion = 13.0;
+					};
+					5E5FF2152771C19A009365B9 = {
+						CreatedOnToolsVersion = 13.2;
 					};
 				};
 			};
@@ -448,6 +504,7 @@
 			projectRoot = "";
 			targets = (
 				5E0219BD2744DC7400773D0F /* GalenIT.CoreSDK */,
+				5E5FF2152771C19A009365B9 /* GalenIT_CoreSDKTests */,
 			);
 		};
 /* End PBXProject section */
@@ -458,6 +515,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E021AC82744F19F00773D0F /* PhoneNumberMetadata.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5E5FF2142771C19A009365B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +557,7 @@
 				5E021AD02744F19F00773D0F /* PhoneNumberKit.swift in Sources */,
 				5E021AE92744F19F00773D0F /* OptionalExt.swift in Sources */,
 				5E021ACF2744F19F00773D0F /* PhoneNumberFormatter.swift in Sources */,
+				5E5237672770CF20005BB76E /* DoubleExt.swift in Sources */,
 				5E021ADB2744F19F00773D0F /* PerduxState.swift in Sources */,
 				5E021ADC2744F19F00773D0F /* ErrorViolationType.swift in Sources */,
 				5E021AB52744F19F00773D0F /* ApiError.swift in Sources */,
@@ -533,7 +598,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E5FF2122771C19A009365B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E5FF2192771C19A009365B9 /* GalenIT_CoreSDKTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E5FF21C2771C19A009365B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E0219BD2744DC7400773D0F /* GalenIT.CoreSDK */;
+			targetProxy = 5E5FF21B2771C19A009365B9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5E0219CE2744DC7400773D0F /* Debug */ = {
@@ -720,6 +801,40 @@
 			};
 			name = Release;
 		};
+		5E5FF21D2771C19A009365B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SL34K73738;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.galenit.rppgSDK.GalenIT-CoreSDKTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5E5FF21E2771C19A009365B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SL34K73738;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.galenit.rppgSDK.GalenIT-CoreSDKTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -737,6 +852,15 @@
 			buildConfigurations = (
 				5E0219D12744DC7400773D0F /* Debug */,
 				5E0219D22744DC7400773D0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5E5FF21F2771C19A009365B9 /* Build configuration list for PBXNativeTarget "GalenIT_CoreSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E5FF21D2771C19A009365B9 /* Debug */,
+				5E5FF21E2771C19A009365B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

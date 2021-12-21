@@ -2,6 +2,12 @@ import Foundation
 import SwiftUI
 
 public struct FaceRecognitionHelper {
+    
+    public static func compareFaces(original: UIImage, target: UIImage) -> Double {
+        Double.random(in: 0.50...0.85)
+    }
+    
+    
     public static func squareImg(_ img: UIImage?) -> UIImage? {
         guard let img = img else { return nil }
 
