@@ -91,7 +91,7 @@ public extension Date {
 }
 
 public extension Date {
-    func addYears(
+    func add(
             years: Int = 0,
             months: Int = 0,
             days: Int = 0,
@@ -254,5 +254,11 @@ public extension Date {
         case currentWeekLocalized(String)
         case currentYearLocalized(String)
         case moreThanYearLocalized(String)
+    }
+}
+
+public extension Date {
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }
 }

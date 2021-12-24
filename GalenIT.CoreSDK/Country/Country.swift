@@ -48,9 +48,7 @@ public extension Country {
         let iso = iso.rawValue.uppercased()
         let emoji = iso
                 .unicodeScalars
-                .compactMap {
-                    UnicodeScalar(127397 + $0.value)
-                }
+                .compactMap { UnicodeScalar(127397 + $0.value) }
                 .map { String($0) }
                 .joined()
 
