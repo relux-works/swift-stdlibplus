@@ -155,7 +155,7 @@ open class Logger {
     public class func log<Action: PerduxAction>(_ action: Action, _ category: os.Logger = .reduxAction) {
         guard config.enabled else { return }
         let sender = "\(type(of: action))"
-        let msg = "\(action)".prefix(1024)
+        let msg = "\(action)"
 
         guard checkIsExcluded(msg).not else { return }
 
