@@ -12,6 +12,16 @@ public struct DateUtils {
         return ts
     }
 
+    public static func buildDate(_ str: String) -> Date? {
+        guard
+                let ts = str.asUtcDate(format: "yyy-MM-dd'T'HH:mm:ss.SSS'Z'"),
+                ts > defaultDateTimeStamp.date
+                else {
+            return nil
+        }
+        return ts
+    }
+
     public static func buildDateTimeStr(_ ts: Int64?) -> String {
         Date
                 .from(millis: ts ?? defaultDateTimeStamp)
