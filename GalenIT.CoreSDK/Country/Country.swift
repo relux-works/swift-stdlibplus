@@ -1,11 +1,10 @@
-import Tagged
 import Foundation
 
 public struct Country: Equatable, Hashable, Codable  {
-    public let iso: Iso
-    public let phoneCode: PhoneCode
-    public let countryCode: CountryCode
-    public let name: Name
+    public let iso: String
+    public let phoneCode: Int
+    public let countryCode: Int
+    public let name: String
 
     public init(
             iso: String,
@@ -13,10 +12,10 @@ public struct Country: Equatable, Hashable, Codable  {
             phoneCode: Int,
             name: String
     ) {
-        self.iso = .init(rawValue: iso)
-        self.phoneCode = .init(rawValue: phoneCode)
-        self.countryCode = .init(rawValue: countryCode)
-        self.name = .init(rawValue: name)
+        self.iso = iso
+        self.phoneCode = phoneCode
+        self.countryCode = countryCode
+        self.name = name
     }
 
     public static func ==(lhs: Country, rhs: Country) -> Bool {
@@ -25,27 +24,15 @@ public struct Country: Equatable, Hashable, Codable  {
 }
 
 public extension Country {
-    enum _Iso {}
-    enum _Name {}
-    enum _PhoneCode {}
-    enum _CountryCode {}
-
-    typealias Name = Tagged<_Name, String>
-    typealias Iso = Tagged<_Iso, String>
-    typealias PhoneCode = Tagged<_PhoneCode, Int>
-    typealias CountryCode = Tagged<_CountryCode, Int>
-}
-
-public extension Country {
     var localizedName: String {
         let locale = NSLocale.current as NSLocale
-        let name = locale.displayName(forKey: .countryCode, value: iso.rawValue)
+        let name = locale.displayName(forKey: .countryCode, value: iso)
 
         return name ?? ""
     }
 
     var emoji: String {
-        let iso = iso.rawValue.uppercased()
+        let iso = iso.uppercased()
         let emoji = iso
                 .unicodeScalars
                 .compactMap { UnicodeScalar(127397 + $0.value) }

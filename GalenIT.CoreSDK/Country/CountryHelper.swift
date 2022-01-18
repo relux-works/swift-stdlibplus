@@ -1,11 +1,11 @@
 import Foundation
 
 public class CountryHelper {
-    public static func getCountry(_ name: String) -> Country? {
+    public static func getCountry(name: String) -> Country? {
         countries.first { $0.localizedName == name }
     }
 
-    public static func getCountry(_ countryCode: Country.CountryCode) -> Country? {
+    public static func getCountry(countryCode: Int) -> Country? {
         countries.first { $0.countryCode == countryCode }
     }
 
@@ -16,12 +16,12 @@ public class CountryHelper {
 //        return self.getCountry(Country.Iso(rawValue: iso))
 //    }
 
-    public static func getCountry(_ iso: Country.Iso?) -> Country? {
+    public static func getCountry(iso: String?) -> Country? {
         guard let iso = iso else {
             return nil
         }
 
-        return countries.first { $0.iso == iso }
+        return countries.first { $0.iso == iso.uppercased() }
     }
 
     public static var countries: [Country] {

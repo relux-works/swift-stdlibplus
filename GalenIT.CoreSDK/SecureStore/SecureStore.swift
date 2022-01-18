@@ -1,5 +1,5 @@
 import Foundation
-import KeychainAccess
+@_implementationOnly import KeychainAccess
 
 
 public protocol ISecureStore {

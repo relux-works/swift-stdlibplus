@@ -9,15 +9,6 @@
           "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
           "version": "4.2.2"
         }
-      },
-      {
-        "package": "swift-tagged",
-        "repositoryURL": "https://github.com/pointfreeco/swift-tagged",
-        "state": {
-          "branch": null,
-          "revision": "6c36cf66f58553d0481a2628e3e27177f698a897",
-          "version": "0.6.0"
-        }
       }
     ]
   },

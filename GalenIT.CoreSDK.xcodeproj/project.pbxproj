@@ -62,7 +62,6 @@
 		5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB32744F19F00773D0F /* PrototypeMock.swift */; };
 		5E021AEF2744F19F00773D0F /* MainQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB42744F19F00773D0F /* MainQueueUtils.swift */; };
 		5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64F72768B33600AB6DE1 /* KeychainAccess */; };
-		5E1B64FB2768B34B00AB6DE1 /* Tagged in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64FA2768B34B00AB6DE1 /* Tagged */; };
 		5E5237672770CF20005BB76E /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5237662770CF20005BB76E /* DoubleExt.swift */; };
 		5E5FF2192771C19A009365B9 /* GalenIT_CoreSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */; };
 		5E5FF21A2771C19A009365B9 /* GalenIT_CoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */; };
@@ -162,7 +161,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E1B64FB2768B34B00AB6DE1 /* Tagged in Frameworks */,
 				5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +439,6 @@
 			name = GalenIT.CoreSDK;
 			packageProductDependencies = (
 				5E1B64F72768B33600AB6DE1 /* KeychainAccess */,
-				5E1B64FA2768B34B00AB6DE1 /* Tagged */,
 			);
 			productName = GalenIT.CoreSDK;
 			productReference = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */;
@@ -493,8 +490,7 @@
 			);
 			mainGroup = 5E0219B42744DC7400773D0F;
 			packageReferences = (
-				5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */,
-				5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */,
+				5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 5E0219BF2744DC7400773D0F /* Products */;
 			projectDirPath = "";
@@ -864,7 +860,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */ = {
+		5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -872,26 +868,13 @@
 				version = 4.2.2;
 			};
 		};
-		5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-tagged";
-			requirement = {
-				kind = exactVersion;
-				version = 0.6.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		5E1B64F72768B33600AB6DE1 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */;
+			package = 5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
-		};
-		5E1B64FA2768B34B00AB6DE1 /* Tagged */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */;
-			productName = Tagged;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -2,13 +2,13 @@ import Foundation
 
 public struct LocationHelper {
 
-    public static let defaultLocationIso: Country.Iso = Country.Iso(rawValue: "US")
+    public static let defaultLocationIso: String = "US"
     
-    public static var cellularLocaleIso: Country.Iso? {
+    public static var cellularLocaleIso: String? {
         CellularNetworkHelper.getCurrentProviderInfo()?.isoCountryCode
     }
     
-    public static var deviceLocaleIso: Country.Iso? {
+    public static var deviceLocaleIso: String? {
         guard
             let iso = Locale.current.regionCode,
             iso.isNotEmpty
@@ -16,10 +16,10 @@ public struct LocationHelper {
             return nil
         }
         
-        return Country.Iso(rawValue: iso)
+        return iso
     }
 
-    public static var currentLocationIso: Country.Iso {
+    public static var currentLocationIso: String {
         cellularLocaleIso ?? deviceLocaleIso ?? defaultLocationIso
     }
 }

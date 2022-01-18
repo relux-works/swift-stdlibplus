@@ -16,7 +16,7 @@ public struct CellularNetworkHelper {
         }
         return .init(
                 carrierName: currentProvider.carrierName ?? "",
-                isoCountryCode: .init(rawValue: isoCountryCode.uppercased()),
+                isoCountryCode: isoCountryCode.uppercased(),
                 mobileCountryCode: currentProvider.mobileCountryCode ?? "",
                 mobileNetworkCode: currentProvider.mobileNetworkCode ?? "",
                 allowsVOIP: currentProvider.allowsVOIP
