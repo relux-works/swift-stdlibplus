@@ -48,7 +48,6 @@
 		5E021ADF2744F19F00773D0F /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA12744F19F00773D0F /* SecureStore.swift */; };
 		5E021AE02744F19F00773D0F /* SecureStorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA22744F19F00773D0F /* SecureStorageError.swift */; };
 		5E021AE12744F19F00773D0F /* SecureStorageConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA32744F19F00773D0F /* SecureStorageConsts.swift */; };
-		5E021AE22744F19F00773D0F /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA42744F19F00773D0F /* StorageType.swift */; };
 		5E021AE32744F19F00773D0F /* CountryResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA72744F19F00773D0F /* CountryResource.swift */; };
 		5E021AE42744F19F00773D0F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA82744F19F00773D0F /* Country.swift */; };
 		5E021AE52744F19F00773D0F /* CountryHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AA92744F19F00773D0F /* CountryHelper.swift */; };
@@ -131,7 +130,6 @@
 		5E021AA12744F19F00773D0F /* SecureStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStore.swift; sourceTree = "<group>"; };
 		5E021AA22744F19F00773D0F /* SecureStorageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorageError.swift; sourceTree = "<group>"; };
 		5E021AA32744F19F00773D0F /* SecureStorageConsts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStorageConsts.swift; sourceTree = "<group>"; };
-		5E021AA42744F19F00773D0F /* StorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
 		5E021AA72744F19F00773D0F /* CountryResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryResource.swift; sourceTree = "<group>"; };
 		5E021AA82744F19F00773D0F /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		5E021AA92744F19F00773D0F /* CountryHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryHelper.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				5E021AA12744F19F00773D0F /* SecureStore.swift */,
 				5E021AA22744F19F00773D0F /* SecureStorageError.swift */,
 				5E021AA32744F19F00773D0F /* SecureStorageConsts.swift */,
-				5E021AA42744F19F00773D0F /* StorageType.swift */,
 			);
 			path = SecureStore;
 			sourceTree = "<group>";
@@ -496,7 +493,7 @@
 			);
 			mainGroup = 5E0219B42744DC7400773D0F;
 			packageReferences = (
-				5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */,
 				5E1B64F92768B34B00AB6DE1 /* XCRemoteSwiftPackageReference "swift-tagged" */,
 			);
 			productRefGroup = 5E0219BF2744DC7400773D0F /* Products */;
@@ -553,7 +550,6 @@
 				5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */,
 				5E021AB82744F19F00773D0F /* ApiFetcher.swift in Sources */,
 				5E021ADE2744F19F00773D0F /* NSError.swift in Sources */,
-				5E021AE22744F19F00773D0F /* StorageType.swift in Sources */,
 				5E021AD02744F19F00773D0F /* PhoneNumberKit.swift in Sources */,
 				5E021AE92744F19F00773D0F /* OptionalExt.swift in Sources */,
 				5E021ACF2744F19F00773D0F /* PhoneNumberFormatter.swift in Sources */,
@@ -868,7 +864,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
 			requirement = {
@@ -889,7 +885,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		5E1B64F72768B33600AB6DE1 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess.git" */;
 			productName = KeychainAccess;
 		};
 		5E1B64FA2768B34B00AB6DE1 /* Tagged */ = {
