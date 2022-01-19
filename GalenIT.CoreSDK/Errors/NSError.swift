@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CustomNSError: IAppError {
+public struct AppNSError: IAppError {
     public let sender: Mirror
     public let callStack: [String]
     public let error: Error? = nil

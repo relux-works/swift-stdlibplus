@@ -1,6 +1,4 @@
 import Foundation
-@_implementationOnly import KeychainAccess
-
 
 public protocol ISecureStore {
     func getValue<T: Decodable>(key: String) ->  Result<T?, SecureStoreError>

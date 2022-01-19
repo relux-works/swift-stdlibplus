@@ -61,7 +61,7 @@
 		5E021AED2744F19F00773D0F /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB22744F19F00773D0F /* DateExt.swift */; };
 		5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB32744F19F00773D0F /* PrototypeMock.swift */; };
 		5E021AEF2744F19F00773D0F /* MainQueueUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021AB42744F19F00773D0F /* MainQueueUtils.swift */; };
-		5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5E1B64F72768B33600AB6DE1 /* KeychainAccess */; };
+		5E3F0BE72797F89E0023AD74 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3F0BE62797F89E0023AD74 /* Keychain.swift */; };
 		5E5237672770CF20005BB76E /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5237662770CF20005BB76E /* DoubleExt.swift */; };
 		5E5FF2192771C19A009365B9 /* GalenIT_CoreSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */; };
 		5E5FF21A2771C19A009365B9 /* GalenIT_CoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */; };
@@ -142,6 +142,7 @@
 		5E021AB22744F19F00773D0F /* DateExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		5E021AB32744F19F00773D0F /* PrototypeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrototypeMock.swift; sourceTree = "<group>"; };
 		5E021AB42744F19F00773D0F /* MainQueueUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainQueueUtils.swift; sourceTree = "<group>"; };
+		5E3F0BE62797F89E0023AD74 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		5E5237662770CF20005BB76E /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
 		5E5FF2162771C19A009365B9 /* GalenIT_CoreSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalenIT_CoreSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalenIT_CoreSDKTests.swift; sourceTree = "<group>"; };
@@ -161,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E1B64F82768B33600AB6DE1 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +309,7 @@
 				5E021AA12744F19F00773D0F /* SecureStore.swift */,
 				5E021AA22744F19F00773D0F /* SecureStorageError.swift */,
 				5E021AA32744F19F00773D0F /* SecureStorageConsts.swift */,
+				5E3F0BE62797F89E0023AD74 /* Keychain.swift */,
 			);
 			path = SecureStore;
 			sourceTree = "<group>";
@@ -438,7 +439,6 @@
 			);
 			name = GalenIT.CoreSDK;
 			packageProductDependencies = (
-				5E1B64F72768B33600AB6DE1 /* KeychainAccess */,
 			);
 			productName = GalenIT.CoreSDK;
 			productReference = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */;
@@ -490,7 +490,6 @@
 			);
 			mainGroup = 5E0219B42744DC7400773D0F;
 			packageReferences = (
-				5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 5E0219BF2744DC7400773D0F /* Products */;
 			projectDirPath = "";
@@ -550,6 +549,7 @@
 				5E021AE92744F19F00773D0F /* OptionalExt.swift in Sources */,
 				5E021ACF2744F19F00773D0F /* PhoneNumberFormatter.swift in Sources */,
 				5E5237672770CF20005BB76E /* DoubleExt.swift in Sources */,
+				5E3F0BE72797F89E0023AD74 /* Keychain.swift in Sources */,
 				5E021ADB2744F19F00773D0F /* PerduxState.swift in Sources */,
 				5E021ADC2744F19F00773D0F /* ErrorViolationType.swift in Sources */,
 				5E021AB52744F19F00773D0F /* ApiError.swift in Sources */,
@@ -858,25 +858,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
-			requirement = {
-				kind = exactVersion;
-				version = 4.2.2;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5E1B64F72768B33600AB6DE1 /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E1B64F62768B33600AB6DE1 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E0219B52744DC7400773D0F /* Project object */;
 }
