@@ -36,6 +36,19 @@ public extension String {
 
         return result
     }
+
+    func asDateIgnoreTimezone(format: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = .current
+
+        formatter.locale = NSLocale(localeIdentifier: "en_us_POSIX") as Locale
+        guard let result = formatter.date(from: self) else {
+            return nil
+        }
+
+        return result
+    }
 }
 
 public extension Date {
@@ -189,7 +202,16 @@ public extension Date {
 
           return toString(as: format, locale: locale)
       }
-    
+
+    func toStringIgnoreTimezone(as format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
+        formatter.timeZone = .current
+
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+
     func toString(as format: String, timezone: TimeZone? = .init(secondsFromGMT: 0), locale: Locale = .current) -> String {
         let formatter = DateFormatter()
 
