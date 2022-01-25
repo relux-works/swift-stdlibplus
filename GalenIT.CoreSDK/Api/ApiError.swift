@@ -79,8 +79,6 @@ public struct ApiError: IAppError {
             "sender": "\(sender.subjectType)",
             "url": url,
             "type": "\(requestType.rawValue)",
-            "headers": "\(headers)",
-            "params": "\(params)",
             "responseCode": "\(responseCode)",
             "message": message,
             "violation": violation.rawValue,
