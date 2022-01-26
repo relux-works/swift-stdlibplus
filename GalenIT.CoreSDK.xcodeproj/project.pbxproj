@@ -74,6 +74,7 @@
 		5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */; };
 		5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */; };
 		5EF570BF2768C27900F60C02 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF570BE2768C27900F60C02 /* LocationHelper.swift */; };
+		AA74BA1327A1682C00D20D9A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74BA1227A1682C00D20D9A /* Formatters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularProviderHelper.swift; sourceTree = "<group>"; };
 		5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularNetworkInfo.swift; sourceTree = "<group>"; };
 		5EF570BE2768C27900F60C02 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		AA74BA1227A1682C00D20D9A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +350,7 @@
 				5E021AB12744F19F00773D0F /* CharacterSetExt.swift */,
 				5E021AB22744F19F00773D0F /* DateExt.swift */,
 				5E5237662770CF20005BB76E /* DoubleExt.swift */,
+				AA74BA1227A1682C00D20D9A /* Formatters.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				5E021AC42744F19F00773D0F /* MetadataTypes.swift in Sources */,
 				5E021AEE2744F19F00773D0F /* PrototypeMock.swift in Sources */,
 				5EA6479E275E264100024838 /* FaceFeatures.swift in Sources */,
+				AA74BA1327A1682C00D20D9A /* Formatters.swift in Sources */,
 				5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */,
 				5E021AB82744F19F00773D0F /* ApiFetcher.swift in Sources */,
 				5E021ADE2744F19F00773D0F /* NSError.swift in Sources */,
