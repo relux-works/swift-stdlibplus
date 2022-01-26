@@ -1,7 +1,7 @@
 import Foundation
 
 // A set of cached predefenied formatters for convinient and efficient use from SwiftUI
-extension Formatter {
+public extension DateFormatter {
     static var mediumDateStyle: DateFormatter = {
         let formatter: DateFormatter = .init()
         formatter.dateStyle = .medium
