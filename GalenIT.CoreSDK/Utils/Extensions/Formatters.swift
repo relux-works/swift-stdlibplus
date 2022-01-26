@@ -30,3 +30,29 @@ public extension DateFormatter {
         return formatter
     }()
 }
+
+public extension PersonNameComponentsFormatter {
+    static var mediumNameLength: PersonNameComponentsFormatter = {
+        let formatter: PersonNameComponentsFormatter = .init()
+        formatter.style = .medium
+        return formatter
+    }()
+    
+    static var shortNameLength: PersonNameComponentsFormatter = {
+        let formatter: PersonNameComponentsFormatter = .init()
+        formatter.style = .short
+        return formatter
+    }()
+    
+    static var longNameLength: PersonNameComponentsFormatter = {
+        let formatter: PersonNameComponentsFormatter = .init()
+        formatter.style = .long
+        return formatter
+    }()
+    
+    static var abbreviatedNameLength: PersonNameComponentsFormatter = {
+        let formatter: PersonNameComponentsFormatter = .init()
+        formatter.style = .abbreviated
+        return formatter
+    }()
+}
