@@ -6,6 +6,7 @@ public typealias NetworkStatus = (connected: Bool, expensive: Bool, wasChanged: 
 
 public protocol INetworkService {
     var status: NetworkStatus { get }
+    func start()
     var networkPub: AnyPublisher<NetworkStatus, Never> { get }
 }
 
@@ -18,6 +19,9 @@ public class NetworkService: INetworkService {
     public var networkPub: AnyPublisher<NetworkStatus, Never> { networkSub.eraseToAnyPublisher() }
 
     public init () {
+    }
+
+    public func start() {
         startWatchNetworkCondition()
     }
 
