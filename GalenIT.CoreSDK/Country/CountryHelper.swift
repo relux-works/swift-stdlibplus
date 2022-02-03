@@ -17,7 +17,10 @@ public class CountryHelper {
 //    }
 
     public static func getCountry(iso: String?) -> Country? {
-        guard let iso = iso else {
+        guard
+                let iso = iso,
+                iso.isNotEmpty
+                else {
             return nil
         }
 

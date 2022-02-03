@@ -22,4 +22,8 @@ public struct LocationHelper {
     public static var currentLocationIso: String {
         cellularLocaleIso ?? deviceLocaleIso ?? defaultLocationIso
     }
+
+    public static func getValidLocationIsoOrDefault(for iso: String) -> String {
+        CountryHelper.getCountry(iso: iso)?.iso ?? currentLocationIso
+    }
 }
