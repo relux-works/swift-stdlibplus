@@ -3,11 +3,6 @@ import SwiftUI
 
 public struct FaceRecognitionHelper {
     
-    public static func compareFaces(original: UIImage, target: UIImage) -> Double {
-        Double.random(in: 0.50...0.85)
-    }
-    
-    
     public static func squareImg(_ img: UIImage?) -> UIImage? {
         guard let img = img else { return nil }
 
@@ -15,6 +10,7 @@ public struct FaceRecognitionHelper {
                 rect: FaceRecognitionHelper.calcPhotoRect(for: img)
         )
     }
+
     public static func buildRecognitionResult(_ view: UIImage?, _ faceDetection: [FaceFeatures]) -> FaceRecognitionResult {
         guard let img = view else {
             return FaceRecognitionResult(img: nil, valid: false, features: nil)
@@ -22,17 +18,14 @@ public struct FaceRecognitionHelper {
 
         guard faceDetection.hasOne, let features = faceDetection.first else {
             return FaceRecognitionResult(
-                    img: img.croppedToSquare(
-                            rect: calcPhotoRect(for: img)
-                    ),
+                    img: squareImg(img),
                     valid: false,
                     features: nil
             )
         }
 
-
         return FaceRecognitionResult(
-                img: img,
+                img: squareImg(img),
                 valid: true,
                 features: features
         )
