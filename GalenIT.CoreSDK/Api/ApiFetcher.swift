@@ -311,6 +311,7 @@ public class ApiFetcher: IApiFetcher {
                                 url: path,
                                 responseCode: response.statusCode,
                                 message: "bad response: \(self?.stringifyData(data: data) ?? "")",
+                                data: data,
                                 requestType: type,
                                 headers: headers,
                                 params: queryParams
@@ -573,6 +574,7 @@ public class ApiFetcher: IApiFetcher {
                                 url: url.absoluteString,
                                 responseCode: 0,
                                 message: "no response: \(self.stringifyData(data: data))",
+                                data: data,
                                 requestType: type,
                                 headers: headers,
                                 params: queryParams
@@ -585,6 +587,7 @@ public class ApiFetcher: IApiFetcher {
                                 url: url.absoluteString,
                                 responseCode: response.statusCode,
                                 message: "bad response: \(self.stringifyData(data: data))",
+                                data: data,
                                 requestType: type,
                                 headers: headers,
                                 params: queryParams
@@ -669,11 +672,7 @@ public class ApiFetcher: IApiFetcher {
             return ""
         }
 
-        guard !str.hasPrefix(htmlPrefix) else {
-            return htmlPrefix
-        }
-
-        return str
+        return str.replacingOccurrences(of: htmlPrefix, with: "")
     }
 
 }

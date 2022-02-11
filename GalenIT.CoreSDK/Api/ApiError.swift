@@ -4,6 +4,7 @@ public struct ApiError: IAppError {
     public let violation: ErrorViolation
     public let sender: Mirror
     public let message: String
+    public let rawData: Data?
     public let callStack: [String]
     public let error: Error?
     public let url: String
@@ -29,6 +30,7 @@ public struct ApiError: IAppError {
             endpoint: ApiEndpoint,
             responseCode: Int = 0,
             message: String = "",
+            data: Data? = nil,
             violation: ErrorViolation = .warning,
             error: Error? = nil,
             headers: [HeaderKey: HeaderValue] = [:],
@@ -39,6 +41,7 @@ public struct ApiError: IAppError {
                 url: endpoint.path,
                 responseCode: responseCode,
                 message: message,
+                data: data,
                 violation: violation,
                 error: error,
                 requestType: endpoint.type,
@@ -52,6 +55,7 @@ public struct ApiError: IAppError {
             url: String = "",
             responseCode: Int = 0,
             message: String = "",
+            data: Data? = nil,
             violation: ErrorViolation = .warning,
             error: Error? = nil,
             requestType: ApiRequestType,
@@ -62,6 +66,7 @@ public struct ApiError: IAppError {
         self.url = url
         self.responseCode = responseCode
         self.message = message
+        self.rawData = data
         self.violation = violation
         self.callStack = Thread.callStackSymbols
         self.headers = headers
