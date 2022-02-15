@@ -1,6 +1,12 @@
 import Foundation
 import CommonCrypto
 
+public extension StringProtocol where Self == String {
+    static var emptyString: String {
+        return ""
+    }
+}
+
 public extension String {
     var removingWhitespaces: String {
         components(separatedBy: .whitespaces).joined()
