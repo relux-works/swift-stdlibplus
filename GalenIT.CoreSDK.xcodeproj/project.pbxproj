@@ -73,6 +73,7 @@
 		5ED22D2F2758DC5E005BF080 /* CameraPermissionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */; };
 		5ED22D302758DC5E005BF080 /* CellularProviderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */; };
 		5ED22D312758DC5E005BF080 /* CellularNetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */; };
+		5EE47A3227C4E03200616551 /* Measurements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE47A3127C4E03200616551 /* Measurements.swift */; };
 		5EF570BF2768C27900F60C02 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF570BE2768C27900F60C02 /* LocationHelper.swift */; };
 		AA74BA1327A1682C00D20D9A /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA74BA1227A1682C00D20D9A /* Formatters.swift */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsHelper.swift; sourceTree = "<group>"; };
 		5ED22D2D2758DC5E005BF080 /* CellularProviderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularProviderHelper.swift; sourceTree = "<group>"; };
 		5ED22D2E2758DC5E005BF080 /* CellularNetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularNetworkInfo.swift; sourceTree = "<group>"; };
+		5EE47A3127C4E03200616551 /* Measurements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurements.swift; sourceTree = "<group>"; };
 		5EF570BE2768C27900F60C02 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		AA74BA1227A1682C00D20D9A /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,6 +325,7 @@
 				5E021AAA2744F19F00773D0F /* Extensions */,
 				5E021AB32744F19F00773D0F /* PrototypeMock.swift */,
 				5E021AB42744F19F00773D0F /* MainQueueUtils.swift */,
+				5EE47A3127C4E03200616551 /* Measurements.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				5E021AEF2744F19F00773D0F /* MainQueueUtils.swift in Sources */,
 				5E021AD42744F19F00773D0F /* Reducer.swift in Sources */,
 				5E021AED2744F19F00773D0F /* DateExt.swift in Sources */,
+				5EE47A3227C4E03200616551 /* Measurements.swift in Sources */,
 				5E021AC32744F19F00773D0F /* RegexManager.swift in Sources */,
 				5ED22D292758DBD8005BF080 /* DateUtils.swift in Sources */,
 				5E021AD82744F19F00773D0F /* ActionDispatcher.swift in Sources */,
