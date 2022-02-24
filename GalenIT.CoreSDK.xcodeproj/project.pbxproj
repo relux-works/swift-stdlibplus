@@ -65,9 +65,8 @@
 		5E5237672770CF20005BB76E /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5237662770CF20005BB76E /* DoubleExt.swift */; };
 		5E5FF2192771C19A009365B9 /* GalenIT_CoreSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */; };
 		5E5FF21A2771C19A009365B9 /* GalenIT_CoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */; };
-		5EA6479D275E264100024838 /* FaceRecognitionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */; };
+		5EA6479D275E264100024838 /* FaceImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479B275E264100024838 /* FaceImageHelper.swift */; };
 		5EA6479E275E264100024838 /* FaceFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479C275E264100024838 /* FaceFeatures.swift */; };
-		5EA647A0275E265C00024838 /* FaceRecognitionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */; };
 		5EA647A2275E26F600024838 /* UIImage+Transformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA647A1275E26F600024838 /* UIImage+Transformations.swift */; };
 		5ED22D292758DBD8005BF080 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D282758DBD8005BF080 /* DateUtils.swift */; };
 		5ED22D2F2758DC5E005BF080 /* CameraPermissionsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */; };
@@ -148,9 +147,8 @@
 		5E5237662770CF20005BB76E /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
 		5E5FF2162771C19A009365B9 /* GalenIT_CoreSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalenIT_CoreSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalenIT_CoreSDKTests.swift; sourceTree = "<group>"; };
-		5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognitionHelper.swift; sourceTree = "<group>"; };
+		5EA6479B275E264100024838 /* FaceImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceImageHelper.swift; sourceTree = "<group>"; };
 		5EA6479C275E264100024838 /* FaceFeatures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceFeatures.swift; sourceTree = "<group>"; };
-		5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceRecognitionResult.swift; sourceTree = "<group>"; };
 		5EA647A1275E26F600024838 /* UIImage+Transformations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformations.swift"; sourceTree = "<group>"; };
 		5ED22D282758DBD8005BF080 /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		5ED22D2B2758DC5E005BF080 /* CameraPermissionsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPermissionsHelper.swift; sourceTree = "<group>"; };
@@ -376,9 +374,8 @@
 		5EA6479A275E264100024838 /* Recognition */ = {
 			isa = PBXGroup;
 			children = (
-				5EA6479B275E264100024838 /* FaceRecognitionHelper.swift */,
+				5EA6479B275E264100024838 /* FaceImageHelper.swift */,
 				5EA6479C275E264100024838 /* FaceFeatures.swift */,
-				5EA6479F275E265C00024838 /* FaceRecognitionResult.swift */,
 			);
 			path = Recognition;
 			sourceTree = "<group>";
@@ -531,7 +528,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E021AD92744F19F00773D0F /* PerduxEffect.swift in Sources */,
-				5EA647A0275E265C00024838 /* FaceRecognitionResult.swift in Sources */,
 				5E021AD72744F19F00773D0F /* Logger.swift in Sources */,
 				5E021AB72744F19F00773D0F /* ApiSessionConfigBuilder.swift in Sources */,
 				5E021AC22744F19F00773D0F /* PhoneNumber.swift in Sources */,
@@ -585,7 +581,7 @@
 				5E021ABC2744F19F00773D0F /* PhoneFormat.swift in Sources */,
 				5E021AD62744F19F00773D0F /* PerduxStore.swift in Sources */,
 				5E021AE72744F19F00773D0F /* BoolExt.swift in Sources */,
-				5EA6479D275E264100024838 /* FaceRecognitionHelper.swift in Sources */,
+				5EA6479D275E264100024838 /* FaceImageHelper.swift in Sources */,
 				5E021AE32744F19F00773D0F /* CountryResource.swift in Sources */,
 				5E021ADA2744F19F00773D0F /* PerduxSaga.swift in Sources */,
 				5E021AE42744F19F00773D0F /* Country.swift in Sources */,
