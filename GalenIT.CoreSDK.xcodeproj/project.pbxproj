@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E0219CD2744DC7400773D0F /* GalenIT_CoreSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E0219C12744DC7400773D0F /* GalenIT_CoreSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5E021AB52744F19F00773D0F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021A6E2744F19F00773D0F /* ApiError.swift */; };
 		5E021AB62744F19F00773D0F /* ApiRequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021A6F2744F19F00773D0F /* ApiRequestType.swift */; };
 		5E021AB72744F19F00773D0F /* ApiSessionConfigBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E021A702744F19F00773D0F /* ApiSessionConfigBuilder.swift */; };
@@ -89,7 +88,6 @@
 
 /* Begin PBXFileReference section */
 		5E0219BE2744DC7400773D0F /* GalenIT_CoreSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GalenIT_CoreSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E0219C12744DC7400773D0F /* GalenIT_CoreSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalenIT_CoreSDK.h; sourceTree = "<group>"; };
 		5E021A6E2744F19F00773D0F /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		5E021A6F2744F19F00773D0F /* ApiRequestType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequestType.swift; sourceTree = "<group>"; };
 		5E021A702744F19F00773D0F /* ApiSessionConfigBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiSessionConfigBuilder.swift; sourceTree = "<group>"; };
@@ -181,8 +179,8 @@
 		5E0219B42744DC7400773D0F = {
 			isa = PBXGroup;
 			children = (
-				5E0219C02744DC7400773D0F /* GalenIT.CoreSDK */,
-				5E5FF2172771C19A009365B9 /* GalenIT_CoreSDKTests */,
+				5E0219C02744DC7400773D0F /* Sources */,
+				5E5FF2172771C19A009365B9 /* Tests */,
 				5E0219BF2744DC7400773D0F /* Products */,
 				5E2E61E1275D074A002A873C /* Frameworks */,
 			);
@@ -197,7 +195,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5E0219C02744DC7400773D0F /* GalenIT.CoreSDK */ = {
+		5E0219C02744DC7400773D0F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				5EF570BD2768C26400F60C02 /* Location */,
@@ -212,9 +210,8 @@
 				5E021A732744F19F00773D0F /* PhoneUtils */,
 				5E021AA02744F19F00773D0F /* SecureStore */,
 				5E021AA52744F19F00773D0F /* Utils */,
-				5E0219C12744DC7400773D0F /* GalenIT_CoreSDK.h */,
 			);
-			path = GalenIT.CoreSDK;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		5E021A6D2744F19F00773D0F /* Api */ = {
@@ -363,12 +360,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5E5FF2172771C19A009365B9 /* GalenIT_CoreSDKTests */ = {
+		5E5FF2172771C19A009365B9 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				5E5FF2182771C19A009365B9 /* GalenIT_CoreSDKTests.swift */,
 			);
-			path = GalenIT_CoreSDKTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		5EA6479A275E264100024838 /* Recognition */ = {
@@ -420,7 +417,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E0219CD2744DC7400773D0F /* GalenIT_CoreSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
