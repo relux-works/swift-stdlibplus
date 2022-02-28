@@ -69,6 +69,7 @@
           "baseSettings"
         ],
         "base": {
+          "SWIFT_OBJC_INTERFACE_HEADER_NAME": "$(SWIFT_MODULE_NAME)-Swift.h",
           "CODE_SIGN_IDENTITY": "Apple Development",
             "SKIP_INSTALL": "NO",
           "TARGETED_DEVICE_FAMILY": "1",
