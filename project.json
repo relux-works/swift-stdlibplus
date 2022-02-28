@@ -105,6 +105,7 @@
       ],
       "settings": {
         "base": {
+          "HEADER_SEARCH_PATHS": "\"$(TARGET_TEMP_DIR)/../$(PROJECT_NAME).build/DerivedSources\"",
           "SKIP_INSTALL": "NO",
           "CODE_SIGN_IDENTITY": "Apple Development"
         },
