@@ -24,6 +24,7 @@
   },
   "settings": {
     "base": {
+      "XCODE_IS_A_FUCKING_BULLSHIT": "YES",
       "GENERATE_INFOPLIST_FILE": "YES",
       "ARCHS": "arm64",
       "OWNER_NAME": "GalenIT",
@@ -69,6 +70,7 @@
           "baseSettings"
         ],
         "base": {
+          "TARGET_TEMP_DIR": "/tmp/Developer/Xcode/DerivedData/Build/Intermediates.noindex/$(PROJECT_NAME).build/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/$(TARGET_NAME).build/",
           "OTHER_SWIFT_FLAGS": "-Xfrontend -no-serialize-debugging-options",
           "SWIFT_OBJC_INTERFACE_HEADER_NAME": "$(SWIFT_MODULE_NAME)-Swift.h",
           "CODE_SIGN_IDENTITY": "Apple Development",
