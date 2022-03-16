@@ -6,7 +6,7 @@ The metadata exists in PhoneNumberMetadata.json and the original XML can be foun
 ## Updating the metadata
 
 We try to keep the metadata of PhoneNumberKit up to date and making sure you are running on the latest release will be sufficient for most apps
-
+/Users/iv/Downloads/flowvit/develop-test_core_frameowrk/SDK/GalenIT.CoreSDK/PhoneNumberMetadata.xml
 However, you can also update the metadata youself by following these steps:
 1. Download a newer version of the XML metadata file from [libPhoneNumber](https://github.com/googlei18n/libphonenumber/blob/master/resources/)
 2. Replace the XML file in your PhoneNumberKit projects. 

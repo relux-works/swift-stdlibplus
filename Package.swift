@@ -9,13 +9,13 @@ let package = Package(
         .iOS(.v14)
     ],
     products: [
+//        .library(
+//            name: "GalenitCoreUtils-Static",
+//            type: .static,
+//            targets: ["CoreUtils"]
+//        ),
         .library(
-            name: "galenit.coreutils.static",
-            type: .static,
-            targets: ["CoreUtils"]
-        ),
-        .library(
-            name: "galenit.coreUtils.dynamic",
+            name: "GalenitCoreUtilsDynamic",
             type: .dynamic,
             targets: ["CoreUtils"]
         ),
@@ -24,6 +24,11 @@ let package = Package(
         .target(
             name: "CoreUtils",
             path: "Sources",
+//            exclude: [
+//                "Res/PhoneNumberKit/Metadata.md",
+//                "Res/PhoneNumberKit/PhoneNumberMetadata.xml"
+//            ],
+            resources: [.copy("PhoneNumberMetadata.json")],
             linkerSettings: [
                 .linkedFramework("CoreTelephony")
             ]
