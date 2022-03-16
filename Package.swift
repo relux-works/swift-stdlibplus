@@ -24,11 +24,11 @@ let package = Package(
         .target(
             name: "CoreUtils",
             path: "Sources",
-//            exclude: [
-//                "Res/PhoneNumberKit/Metadata.md",
-//                "Res/PhoneNumberKit/PhoneNumberMetadata.xml"
-//            ],
-            resources: [.copy("PhoneNumberMetadata.json")],
+            exclude: [
+                "PhoneUtils/PhoneNumberKit/Resources/Metadata.md",
+                "PhoneUtils/PhoneNumberKit/Resources/PhoneNumberMetadata.xml"
+            ],
+            resources: [.copy("PhoneUtils/PhoneNumberKit/Resources/PhoneNumberMetadata.json")],
             linkerSettings: [
                 .linkedFramework("CoreTelephony")
             ]
