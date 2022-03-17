@@ -4,25 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "GalenIT_CoreSDK",
+    name: "GalenitCoreKit",
     platforms: [
         .iOS(.v14)
     ],
     products: [
-//        .library(
-//            name: "GalenitCoreUtils-Static",
-//            type: .static,
-//            targets: ["CoreUtils"]
-//        ),
         .library(
-            name: "GalenitCoreUtilsDynamic",
+            name: "GalenitCoreKit",
             type: .dynamic,
-            targets: ["CoreUtils"]
+            targets: ["GalenitCoreKit"]
         ),
     ],
     targets: [
         .target(
-            name: "CoreUtils",
+            name: "GalenitCoreKit",
             path: "Sources",
             exclude: [
                 "PhoneUtils/PhoneNumberKit/Resources/Metadata.md",
@@ -34,8 +29,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "CoreUtilsTests",
-            dependencies: ["CoreUtils"],
+            name: "GalenitCoreKitTests",
+            dependencies: ["GalenitCoreKit"],
             path: "Tests"
         ),
     ]

@@ -1,5 +1,5 @@
 import XCTest
-import CoreUtils
+import GalenitCoreKit
 
 class DateExt_Tests: XCTestCase {
 
