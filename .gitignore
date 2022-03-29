@@ -1,5 +1,7 @@
 ## User Data
 
+
+.swiftpm
 *.xcodeproj
 *.xcuserdatad
 
