@@ -1,23 +1,22 @@
-// swift-tools-version:5.5
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
-    name: "GalenitCoreKit",
+    name: "galenit-coreutils",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "GalenitCoreKit",
+            name: "GalenitCoreUtils",
             type: .dynamic,
-            targets: ["GalenitCoreKit"]
+            targets: ["GalenitCoreUtils"]
         ),
     ],
     targets: [
         .target(
-            name: "GalenitCoreKit",
+            name: "GalenitCoreUtils",
             path: "Sources",
             exclude: [
                 "PhoneUtils/PhoneNumberKit/Resources/Metadata.md",
@@ -29,8 +28,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "GalenitCoreKitTests",
-            dependencies: ["GalenitCoreKit"],
+            name: "GalenitCoreUtilsTests",
+            dependencies: ["GalenitCoreUtils"],
             path: "Tests"
         ),
     ]
