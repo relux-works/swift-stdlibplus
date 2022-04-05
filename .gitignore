@@ -2,6 +2,7 @@
 
 
 .swiftpm
+.swiftpm
 *.xcodeproj
 *.xcuserdatad
 
