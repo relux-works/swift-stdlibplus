@@ -73,6 +73,16 @@ open class Logger {
         print(msg)
     }
 
+    public class func log(error: IAppError) {
+        guard config.enabled else { return }
+
+        let msg = "Error: \(type(of: error)) at \(currentTime): \(error.toString())"
+
+        guard checkIsExcluded(msg).not else { return }
+
+        print(msg)
+    }
+
     public class func log(error: Error) {
         guard config.enabled else { return }
 
