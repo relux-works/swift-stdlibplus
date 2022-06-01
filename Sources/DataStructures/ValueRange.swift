@@ -7,7 +7,9 @@ public enum ValueRange<T: Codable & Comparable>: Codable {
 }
 
 public extension ValueRange {
-    func contains(_ value: T) -> Bool {
+    func contains(_ value: T?) -> Bool {
+        guard let value = value else { return false }
+
         switch self {
         case let .closed(r): return r.contains(value)
         case let .partialFrom(r): return r.contains(value)
