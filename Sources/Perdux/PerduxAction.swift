@@ -1,5 +1,5 @@
 import Foundation
 
-public protocol PerduxAction {
+public protocol PerduxAction: EnumReflectable {
     static var executionQueue: DispatchQueue { get }
 }

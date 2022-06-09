@@ -2,7 +2,7 @@ import Foundation
 
 public struct SecureStoreError: IAppError {
     public let violation: ErrorViolation
-    public let sender: Mirror
+    public let sender: Any.Type
     public let message: String
     public let callStack: [String]
     public let error: Error?
@@ -25,7 +25,7 @@ public struct SecureStoreError: IAppError {
             violation: ErrorViolation = .warning,
             error: Error? = nil
     ) {
-        self.sender = Mirror(reflecting: sender)
+        self.sender = Mirror(reflecting: sender).subjectType
         self.message = message
         self.violation = violation
         self.callStack = Thread.callStackSymbols
@@ -38,7 +38,7 @@ public struct SecureStoreError: IAppError {
 
     public var data: [String: String] {
         [
-            "sender": "\(sender.subjectType)",
+            "sender": "\(sender)",
             "message": message,
             "violation": violation.rawValue,
             "cause": error?.localizedDescription ?? "",

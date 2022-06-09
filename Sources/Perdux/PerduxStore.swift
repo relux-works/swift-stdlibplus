@@ -22,6 +22,6 @@ public class PerduxStore: ActionDispatcherSubscriber {
     }
 
     deinit {
-        Logger.log(sender: self, message: "deInit")
+        log("deinitialized")
     }
 }

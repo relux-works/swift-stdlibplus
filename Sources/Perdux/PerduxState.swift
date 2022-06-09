@@ -36,15 +36,16 @@ open class PerduxState: ObservableObject {
     }
 
     public func handleWillChange(sender: Any, name: String, oldValue: Any?, newValue: Any?) {
-          DispatchQueue.global(qos: .utility).async {
-              Logger.log(
-                      state: self,
-                      fieldName: name,
-                      event: .willChange,
-                      oldValue: oldValue,
-                      newValue: newValue
-              )
-          }
+        #warning("find better logging alternative")
+//          DispatchQueue.global(qos: .utility).async {
+//              Logger.log(
+//                      state: self,
+//                      fieldName: name,
+//                      event: .willChange,
+//                      oldValue: oldValue,
+//                      newValue: newValue
+//              )
+//          }
     }
 
     public func handleDidChange(sender: Any, name: String, oldValue: Any?, newValue: Any?) {
@@ -52,14 +53,14 @@ open class PerduxState: ObservableObject {
             self.objectDidChange.send()
         }
 
-
-        DispatchQueue.global(qos: .utility).async {
-            Logger.log(
-                    state: self,
-                    fieldName: name,
-                    event: .didChange,
-                    oldValue: oldValue,
-                    newValue: newValue)
-        }
+        #warning("find better logging alternative")
+//        DispatchQueue.global(qos: .utility).async {
+//            Logger.log(
+//                    state: self,
+//                    fieldName: name,
+//                    event: .didChange,
+//                    oldValue: oldValue,
+//                    newValue: newValue)
+//        }
     }
 }

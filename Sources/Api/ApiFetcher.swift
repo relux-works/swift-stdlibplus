@@ -11,6 +11,13 @@ public extension ResponseCode {
     var statusOK: Bool { self == 200 }
 }
 
+
+
+
+public extension os.Logger {
+    static let api = os.Logger(subsystem: mainBundle, category: "↕️ API")
+}
+
 public struct ApiResponse {
     public let data: Data?
     public let headers: ResponseHeaders
@@ -269,7 +276,7 @@ public class ApiFetcher: IApiFetcher {
         let semaphore = DispatchSemaphore(value: 0)
 
         let cURL = create_cURL(requestType: type, path: url, headers: headers, bodyData: bodyData)
-        log("\("🟡 beginning   \(type) \(path)")\n\(cURL)", .api)
+        log("\("🟡 beginning   \(type) \(path)")\n\(cURL)", category: .api)
 
         let task = session.dataTask(with: request) {[weak self] data, response, error in
             if let _ = error {
@@ -335,10 +342,10 @@ public class ApiFetcher: IApiFetcher {
 
         switch result {
         case .success(let response):
-            log("🟢 successful   \(type) \(path) \nresponse data: \(response.data?.utf8 ?? "") \nheaders: \(response.headers)\n", .api)
+            log("🟢 successful   \(type) \(path) \nresponse data: \(response.data?.utf8 ?? "") \nheaders: \(response.headers)\n", category: .api)
 
         case .failure(let error):
-            log("🔴 unsuccessful \(type) \(path) \nerror: \(error.toString())", .api)
+            log("🔴 unsuccessful \(type) \(path) \nerror: \(error.toString())", category: .api)
         case .none:
             break
         }
@@ -564,7 +571,7 @@ public class ApiFetcher: IApiFetcher {
         let request = buildRequest(url: url, type: type, headers: headers, bodyData: bodyData)
 
         let cURL = create_cURL(requestType: type, path: url, headers: headers, bodyData: bodyData)
-        log("\("🟡 beginning   \(type) \(path)")\n\(cURL)", .api)
+        log("\("🟡 beginning   \(type) \(path)")\n\(cURL)", category: .api)
 
         return session.dataTaskPublisher(for: request)
                 .tryMap { data, response in
@@ -594,12 +601,12 @@ public class ApiFetcher: IApiFetcher {
                         )
                     } else if response.statusCode == 204 {
                         let apiResponse =  ApiResponse(data: nil, headers: response.allHeaderFields, code: response.statusCode)
-                        log("🟢 successful   \(type) \(path) \nresponse data: nil \nheaders: \(apiResponse.headers)\n", .api)
+                        log("🟢 successful   \(type) \(path) \nresponse data: nil \nheaders: \(apiResponse.headers)\n", category: .api)
                         return apiResponse
                     }
 
                     let apiResponse = ApiResponse(data: data, headers: response.allHeaderFields, code: response.statusCode)
-                    log("🟢 successful   \(type) \(path) \nresponse data: \(data.utf8 ?? "") \nheaders: \(apiResponse.headers)\n", .api)
+                    log("🟢 successful   \(type) \(path) \nresponse data: \(data.utf8 ?? "") \nheaders: \(apiResponse.headers)\n", category: .api)
 
                     return apiResponse
                 }
@@ -607,10 +614,10 @@ public class ApiFetcher: IApiFetcher {
                     // handle specific errors
 
                     if let error = error as? ApiError {
-                        log("🔴 unsuccessful \(type) \(path) \nerror: \(error.toString())", .api)
+                        log("🔴 unsuccessful \(type) \(path) \nerror: \(error.toString())", category: .api)
                         return error
                     } else {
-                        log("🔴 unsuccessful \(type) \(path) \nerror: \(error.localizedDescription)", .api)
+                        log("🔴 unsuccessful \(type) \(path) \nerror: \(error.localizedDescription)", category: .api)
                         return ApiError(
                                 sender: self,
                                 url: url.absoluteString,

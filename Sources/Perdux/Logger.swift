@@ -1,209 +1,87 @@
 import Foundation
-import os.log
+@_exported import os.log
 
-public func log(sender: Any, message: String) {
-    Logger.log(sender: sender, message: message)
-}
-
-public func log(sender: String, message: String) {
-    Logger.log(sender: sender, message: message)
-}
-
-public func log(sender: String = #fileID, functionName: String = #function, _ message: String, _ category: os.Logger = .reduxMsg) {
-    let stroppedFileId = sender
-            .replacingOccurrences(of: ".swift", with: "")
-    let strippedFunctionName = functionName
-            .replacingOccurrences(of: ".swift", with: "")
-    Logger.log(sender: "\(stroppedFileId) \(strippedFunctionName)", message: message, category: category)
-}
-
-public func log(sender: String = #fileID, _ error: Error, comment: String = "", _ category: os.Logger = .reduxMsg) {
-    let strippedFileId = sender
-            .replacingOccurrences(of: ".swift", with: "")
-    Logger.log(sender: strippedFileId, error: error, category: category)
-}
-
-public func log<Action: PerduxAction>(_ action: Action, _ category: os.Logger = .reduxMsg) {
-    Logger.log(action, category)
+public extension os.Logger {
+    static var mainBundle = Bundle.main.bundleIdentifier!
 }
 
 public extension os.Logger {
-    private static var subsystem = Bundle.main.bundleIdentifier!
-
-    // global loosely structured categories
-    static let reduxAction = os.Logger(subsystem: subsystem, category: "🔄 Perdux Action")
-    static let reduxEffect = os.Logger(subsystem: subsystem, category: "🔀 Perdux Effect")
-    static let reduxState = os.Logger(subsystem: subsystem, category: "💿 Perdux State")
-    static let reduxMsg = os.Logger(subsystem: subsystem, category: "ℹ️ Msg")
-    static let error = os.Logger(subsystem: subsystem, category: "❗️Error")
-
-    // logical categories
-    static let ui = os.Logger(subsystem: subsystem, category: "⏯ UI")
-    static let api = os.Logger(subsystem: subsystem, category: "↕️ API")
-    static let socket = os.Logger(subsystem: subsystem, category: "🌐 Socket")
-    static let tokenProvider = os.Logger(subsystem: subsystem, category: "🔑 TokenProvider")
+    static let error = os.Logger(subsystem: mainBundle, category: "❗️Error")
+    static let `default` = os.Logger(subsystem: os.Logger.mainBundle, category: "🔤 Default")
 }
 
-open class LoggerConfig {
-    let enabled: Bool
-    let exclusions: [String]
+public enum _OSLogPrivacy: Equatable {
+    case  auto, `public`, `private`, sensitive
+}
 
-    public init(
-            enabled: Bool = false,
-            exclusions: [String] = []
-    ) {
-        self.enabled = enabled
-        self.exclusions = exclusions
+@inlinable
+@inline(__always)
+public func log(_ message: String, logType: OSLogType = .default, category: os.Logger = .default, privacy: _OSLogPrivacy = .private) {
+    // privacy argument must be resolved on compile time, hence ugly workaround
+    // more info:
+    // https://stackoverflow.com/questions/62675874/xcode-12-and-oslog-os-log-wrapping-oslogmessage-causes-compile-error-argumen#63036815
+    switch privacy {
+    case .private:
+        //\(sender, align: .left(columns: 30), privacy: .public)
+        category.log(level: logType, "\(message, align: .left(columns: 30), privacy: .private)")
+    case .public:
+        category.log(level: logType, "\(message, align: .left(columns: 30), privacy: .public)")
+    case .auto:
+        category.log(level: logType, "\(message, align: .left(columns: 30), privacy: .auto)")
+    case .sensitive:
+        category.log(level: logType, "\(message, align: .left(columns: 30), privacy: .sensitive)")
+    }
+   
+}
+
+
+@inlinable
+@inline(__always)
+public func log<E: Error>(_ error: E) where E: CustomStringConvertible {
+    log(error.description, logType: .error, category: .error)
+}
+
+@inlinable
+@inline(__always)
+public func log<Case>(_ case: Case) where Case: EnumReflectable  {
+    let sender = "\(`case`.caseName) \(`case`.associatedValues)"
+    log(sender, logType: .info)
+}
+
+
+
+public protocol EnumReflectable: CaseNameReflectable, AssociatedValuesReflectable {}
+
+// reflicting enum cases
+public protocol CaseNameReflectable {
+    var caseName: String { get }
+}
+public extension CaseNameReflectable {
+    var caseName: String {
+        let mirror = Mirror(reflecting: self)
+        guard let caseName = mirror.children.first?.label else {
+            return "\(mirror.subjectType).\(self)"
+        }
+        return "\(mirror.subjectType).\(caseName)"
     }
 }
 
-open class Logger {
-    public static var config: LoggerConfig = .init()
-    public class func log(error: NSException, data: [String: Any] = [:]) {
-        guard config.enabled else { return }
-        let msg =  """
-                   Error: \(type(of: error)) at \(currentTime): name: \(error.name) 
-                       reason: \(error.reason ?? "nil")
-                       data: \(data)
-                       callstack: \n\(error.callStackSymbols.joined(separator: "\n"))
-                   """
+public protocol AssociatedValuesReflectable {
+    var associatedValues: [String: String] { get }
+}
+public extension AssociatedValuesReflectable {
+    var associatedValues: [String: String] {
+        var values = [String: String]()
+        guard let associated = Mirror(reflecting: self).children.first else {
+            return values
+        }
 
-        guard checkIsExcluded(msg).not else { return }
-
-        print(msg)
-    }
-
-    public class func log(error: IAppError) {
-        guard config.enabled else { return }
-
-        let msg = "Error: \(type(of: error)) at \(currentTime): \(error.toString())"
-
-        guard checkIsExcluded(msg).not else { return }
-
-        print(msg)
-    }
-
-    public class func log(error: Error) {
-        guard config.enabled else { return }
-
-        let msg = "Error: \(type(of: error)) at \(currentTime): \(error.localizedDescription)"
-
-        guard checkIsExcluded(msg).not else { return }
-
-        print(msg)
-    }
-
-    public class func log(sender: String, error: Error, category logger: os.Logger) {
-        guard config.enabled else { return }
-
-        let msg = "Error: \(type(of: error)) \(error.localizedDescription)"
-
-        guard checkIsExcluded(sender).not else { return }
-        guard checkIsExcluded(msg).not else { return }
-
-        logger.error("\(sender, align: .left(columns: 30), privacy: .public) \(msg, align: .left(columns: 30), privacy: .public)")
-    }
-
-    public class func log(state: PerduxState, fieldName: String, event: PerduxState.ChangesType, oldValue: Any?, newValue: Any?) {
-        guard config.enabled else { return }
-
-        let sender = "\(Mirror(reflecting: state).subjectType)"
-        let oldValue = "\(oldValue ?? "nil")".prefix(256)
-        let newValue = "\(newValue ?? "nil")".prefix(256)
-        let msg =
-                """
-                '\(fieldName)' \(event)
-                  from: \(oldValue)
-                  to: \(newValue)
-                """
-
-        guard checkIsExcluded(sender).not else { return }
-        guard checkIsExcluded(msg).not else { return }
-
-        os.Logger.reduxState.info("\(sender, align: .left(columns: 30)) \(msg, align: .left(columns: 30))")
-    }
-
-    public class func log(sender: Any, message: String) {
-        guard config.enabled else { return }
-
-        let sender = "\(Mirror(reflecting: sender).subjectType)"
-
-        guard checkIsExcluded(sender).not else { return }
-        guard checkIsExcluded(message).not else { return }
-
-        os.Logger.reduxMsg.info("\(sender, align: .left(columns: 30)) \(message, align: .left(columns: 30))")
-    }
-
-    public class func log(sender: String, message: String) {
-        guard config.enabled else { return }
-        guard checkIsExcluded(sender).not else { return }
-        guard checkIsExcluded(message).not else { return }
-
-        os.Logger.reduxMsg.info("\(sender, align: .left(columns: 30)) \(message, align: .left(columns: 30))")
-    }
-
-    public class func log(sender: String, message: String, category logger: os.Logger) {
-        guard config.enabled else { return }
-
-        guard checkIsExcluded(sender).not else { return }
-        guard checkIsExcluded(message).not else { return }
-
-        logger.info("\(sender, align: .left(columns: 30), privacy: .public) \(message, align: .left(columns: 30), privacy: .public)")
-    }
-
-    public class func log(sender: Any, message: String, data: String) {
-        guard config.enabled else { return }
-
-        let sender = "\(Mirror(reflecting: sender).subjectType)"
-        let msg = "\(message): \n\t \(data)"
-
-        guard checkIsExcluded(msg).not else { return }
-
-        os.Logger.reduxMsg.info("\(sender, align: .left(columns: 30)) \(msg, align: .left(columns: 30))")
-    }
-
-    public class func log<Action: PerduxAction>(_ action: Action, _ category: os.Logger = .reduxAction) {
-        guard config.enabled else { return }
-        let sender = "\(type(of: action))"
-        let msg = "\(action)"
-
-        guard checkIsExcluded(msg).not else { return }
-
-        category.info("\(sender, align: .left(columns: 30)) \(msg, align: .left(columns: 30))")
-    }
-
-    public class func log(_ effects: [PerduxEffect]) {
-        effects
-            .forEach(log)
-    }
-
-    public class func log(_ effect: PerduxEffect) {
-        guard config.enabled else { return }
-
-        let sender = "\(type(of: effect))"
-        let msg = "\(effect)"
-
-        guard checkIsExcluded(msg).not else { return }
-
-        os.Logger.reduxEffect.info("\(sender, align: .left(columns: 30)) \(msg, align: .left(columns: 30))")
-    }
-
-    private class var currentTime: String {
-        Date().timeWithMillis
-    }
-
-    private class var currentFullDate: String {
-        Date().toString(as: "EEE',' dd MMM yyyy HH':'mm':'ss z")
-    }
-
-    private class func checkIsExcluded(_ str: String.SubSequence) -> Bool {
-        config.exclusions
-                .first { str.contains($0) }
-                .isNotNil
-    }
-    private class func checkIsExcluded(_ str: String) -> Bool {
-        config.exclusions
-                .first { str.contains($0) }
-                .isNotNil
+        let children = Mirror(reflecting: associated.value).children
+        for case let item in children {
+            if let label = item.label {
+                values[label] = String(describing: item.value)
+            }
+        }
+        return values
     }
 }

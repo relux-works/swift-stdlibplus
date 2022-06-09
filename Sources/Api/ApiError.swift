@@ -2,7 +2,7 @@ import Foundation
 
 public struct ApiError: IAppError {
     public let violation: ErrorViolation
-    public let sender: Mirror
+    public let sender: Any.Type
     public let message: String
     public let rawData: Data?
     public let callStack: [String]
@@ -62,7 +62,7 @@ public struct ApiError: IAppError {
             headers: [HeaderKey: HeaderValue] = [:],
             params: [ParamKey: ParamValue] = [:]
     ) {
-        self.sender = Mirror(reflecting: sender)
+        self.sender = Mirror(reflecting: sender).subjectType
         self.url = url
         self.responseCode = responseCode
         self.message = message
@@ -81,7 +81,7 @@ public struct ApiError: IAppError {
 
     public var data: [String: String] {
         [
-            "sender": "\(sender.subjectType)",
+            "sender": "\(sender)",
             "url": url,
             "type": "\(requestType.rawValue)",
             "responseCode": "\(responseCode)",

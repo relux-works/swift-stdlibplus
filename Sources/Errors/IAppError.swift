@@ -8,7 +8,7 @@ public protocol IAppError: Error, ConciseErrorStringConvertible, CustomDebugStri
     var violation: ErrorViolation { get }
     var message: String { get }
     var callStack: [String] { get }
-    var sender: Mirror { get }
+    var sender: Any.Type { get }
     var error: Error? { get }
     func toString() -> String
     var data: [String: String] { get }

@@ -1,7 +1,7 @@
 import Foundation
 
 public struct AppNSError: IAppError {
-    public let sender: Mirror
+    public let sender: Any.Type
     public let callStack: [String]
     public let error: Error? = nil
     public let message: String
@@ -26,7 +26,7 @@ public struct AppNSError: IAppError {
             violation: ErrorViolation,
             exception: NSException
     ) {
-        self.sender = Mirror(reflecting: sender)
+        self.sender = Mirror(reflecting: sender).subjectType
         self.callStack = exception.callStackSymbols
         self.message = message
         self.violation = violation
@@ -39,7 +39,7 @@ public struct AppNSError: IAppError {
 
     public var data: [String: String] {
         [
-            "sender": "\(sender.subjectType)",
+            "sender": "\(sender)",
             "message": "\(exception.name)",
             "violation": violation.rawValue,
             "cause": exception.reason ?? "",
