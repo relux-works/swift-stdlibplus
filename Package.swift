@@ -27,6 +27,15 @@ let package = Package(
     dependencies: Package.remoteDependencies,
     targets: [
         .target(
+            name: "CoreUtils",
+            dependencies: [
+                "DarwellPerdux",
+                "ConsoleLogger",
+                "GalenitCoreUtils",
+            ],
+            path: "_Export"
+        ),
+        .target(
             name: "DarwellPerdux",
             dependencies: Package.perduxDependencies,
             path: "DarwellPerdux"
