@@ -28,17 +28,12 @@ let package = Package(
     targets: [
         .target(
             name: "DarwellPerdux",
-            dependencies: [
-                .productItem(name: "Perdux", package: "darwin-perdux", condition: .none),
-                .productItem(name: "Logger", package: "darwin-logger", condition: .none),
-            ],
+            dependencies: Package.perduxDependencies,
             path: "DarwellPerdux"
         ),
         .target(
             name: "ConsoleLogger",
-            dependencies: [
-                .productItem(name: "Logger", package: "darwin-logger", condition: .none),
-            ],
+            dependencies: Package.consoleLoggerDependencies,
             path: "ConsoleLogger"
         ),
         .target(
@@ -65,14 +60,21 @@ let package = Package(
 extension Package {
     static var remoteDependencies: [Package.Dependency] {
         [
-            .package(url: "git@github.com:galen-it/darwin-perdux.git", from: "0.1.0"),
-            .package(url: "git@github.com:galen-it/darwin-logger.git", from: "0.1.0"),
+            .package(url: "git@github.com:galen-it/darwin-perdux.git", from: "0.1.1"),
+            .package(url: "git@github.com:galen-it/darwin-logger.git", from: "0.1.1"),
         ]
     }
 
-//    static var coreDependencies: [Target.Dependency] {
-//        [
-//            .product(name: "Logger", package: "darwin-logger"),
-//        ]
-//    }
+    static var consoleLoggerDependencies: [Target.Dependency] {
+        [
+            .product(name: "Logger", package: "darwin-logger", condition: .none),
+        ]
+    }
+    
+    static var perduxDependencies: [Target.Dependency] {
+        [
+            .productItem(name: "Perdux", package: "darwin-perdux", condition: .none),
+            .productItem(name: "Logger", package: "darwin-logger", condition: .none),
+        ]
+    }
 }
