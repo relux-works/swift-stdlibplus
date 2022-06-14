@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import os.log
 
 public typealias HeaderKey = String
 public typealias HeaderValue = String

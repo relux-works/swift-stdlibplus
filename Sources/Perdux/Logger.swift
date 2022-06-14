@@ -1,5 +1,5 @@
 import Foundation
-@_exported import os.log
+import os.log
 
 public extension os.Logger {
     static var mainBundle = Bundle.main.bundleIdentifier!
