@@ -10,7 +10,22 @@ public extension Int {
         CGFloat(self)
     }
 
-    var asUInt: UInt {
-        UInt(self)
+    
+//    var asUInt: UInt {
+//        UInt(self)
+//    }
+}
+
+public extension Int64 {
+    var asDouble: Double {
+        Double(self)
     }
+
+    var asCGFloat: CGFloat {
+        CGFloat(self)
+    }
+
+//    var asUInt: UInt {
+//        UInt(self)
+//    }
 }

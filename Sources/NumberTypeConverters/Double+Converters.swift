@@ -18,7 +18,11 @@ public extension Double {
     var asIntRounded: Int {
         Int(lround(self))
     }
-
+    
+    var asUIntTruncated: UInt {
+        UInt(self)
+    }
+    
     var asInt: Int {
         Int(self)
     }

@@ -1,7 +1,7 @@
 import CoreGraphics
 
 extension CGFloat {
-    var asInt: Int {
+    var asIntTruncating: Int {
         Int(self)
     }
 }
