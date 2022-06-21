@@ -10,10 +10,12 @@ public extension Int {
         CGFloat(self)
     }
 
-    
-//    var asUInt: UInt {
-//        UInt(self)
-//    }
+    var asUInt: UInt {
+        switch self {
+        case ...0: return 0
+        default: return UInt(self)
+        }
+    }
 }
 
 public extension Int64 {
@@ -25,7 +27,10 @@ public extension Int64 {
         CGFloat(self)
     }
 
-//    var asUInt: UInt {
-//        UInt(self)
-//    }
+    var asUInt: UInt {
+        switch self {
+        case ...0: return 0
+        default: return UInt(self)
+        }
+    }
 }
