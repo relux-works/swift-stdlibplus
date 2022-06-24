@@ -13,10 +13,8 @@ public extension ResponseCode {
 }
 
 
-
-
 public extension os.Logger {
-    static let api = os.Logger(subsystem: mainBundle, category: "↕️ API")
+    static let api = os.Logger(subsystem: Bundle.main.bundleIdentifier!, category: "↕️ API")
 }
 
 public struct ApiResponse {

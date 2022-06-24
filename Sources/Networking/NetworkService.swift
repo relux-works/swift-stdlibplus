@@ -30,7 +30,6 @@ public class NetworkService: INetworkService {
             guard let strongSelf = self else {
                 return
             }
-            log("status: \(path.status), isExpensive: \(path.isExpensive)")
 
             let prevStatus = strongSelf.status
             let nextStatus = strongSelf.buildStatus(path: path, prevStatus: prevStatus)
