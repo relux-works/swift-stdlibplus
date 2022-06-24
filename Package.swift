@@ -47,6 +47,7 @@ let package = Package(
         ),
         .target(
             name: "GalenitCoreUtils",
+            dependencies: Package.coreUtilsDependencies,
             path: "Sources",
             exclude: [
                 "PhoneUtils/PhoneNumberKit/Resources/Metadata.md",
@@ -75,6 +76,12 @@ extension Package {
     }
 
     static var consoleLoggerDependencies: [Target.Dependency] {
+        [
+            .product(name: "Logger", package: "darwin-logger", condition: .none),
+        ]
+    }
+    
+    static var coreUtilsDependencies: [Target.Dependency] {
         [
             .product(name: "Logger", package: "darwin-logger", condition: .none),
         ]
