@@ -7,6 +7,12 @@ public extension StringProtocol where Self == String {
     }
 }
 
+public extension StringProtocol where Self == String {
+    static var whitespace: String {
+        return " "
+    }
+}
+
 public extension String {
     var removingWhitespaces: String {
         components(separatedBy: .whitespaces).joined()
