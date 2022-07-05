@@ -70,8 +70,8 @@ let package = Package(
 extension Package {
     static var remoteDependencies: [Package.Dependency] {
         [
-            .package(url: "git@github.com:galen-it/darwin-perdux.git", from: "0.2.0"),
-            .package(url: "git@github.com:galen-it/darwin-logger.git", from: "0.1.1"),
+            .package(url: "git@github.com:galen-it/darwin-perdux.git", from: "0.1.2"),
+            .package(url: "git@github.com:galen-it/darwin-logger.git", from: "0.2.1"),
         ]
     }
 
