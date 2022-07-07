@@ -5,3 +5,4 @@ public extension Encodable {
         return try? JSONEncoder().encode(self)
     }
 }
+

@@ -8,3 +8,15 @@ public extension Decodable {
         return try? JSONDecoder().decode(Self.self, from: data)
     }
 }
+
+
+extension Decodable {
+    init?(json: Data?) {
+        if json != nil,
+           let instance = Self.decode(from: json) {
+            self = instance
+        } else {
+            return nil
+        }
+    }
+}
