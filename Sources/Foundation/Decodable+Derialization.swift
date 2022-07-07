@@ -10,7 +10,7 @@ public extension Decodable {
 }
 
 
-extension Decodable {
+public extension Decodable {
     init?(json: Data?) {
         if json != nil,
            let instance = Self.decode(from: json) {
