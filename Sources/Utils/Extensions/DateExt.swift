@@ -285,9 +285,14 @@ public extension Date {
     }
 }
 
+
 public extension Date {
     var startOfDay: Date {
         Calendar.current.startOfDay(for: self)
+    }
+
+    var startOfWeek: Date? {
+        Calendar.current.dateComponents([.calendar, .yearForWeekOfYear, .weekOfYear], from: self).date
     }
 
     var endOfDay: Date {
