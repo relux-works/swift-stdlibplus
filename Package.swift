@@ -3,27 +3,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "galenit-coreutils",
+    name: "swift-utils",
     platforms: [
         .iOS(.v14)
     ],
     products: [
         .library(
-            name: "GalenitCoreUtils",
+            name: "SwiftUtils",
             type: .dynamic,
-            targets: ["GalenitCoreUtils"]
+            targets: ["SwiftUtils"]
         )
     ],
     targets: [
         .target(
-            name: "CoreUtils",
-            dependencies: [
-                "GalenitCoreUtils",
-            ],
-            path: "_Export"
-        ),
-        .target(
-            name: "GalenitCoreUtils",
+            name: "SwiftUtils",
             path: "Sources",
             exclude: [
                 "PhoneUtils/PhoneNumberKit/Resources/Metadata.md",
@@ -35,8 +28,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "GalenitCoreUtilsTests",
-            dependencies: ["GalenitCoreUtils"],
+            name: "SwiftUtilsTests",
+            dependencies: ["SwiftUtils"],
             path: "Tests"
         ),
     ]
