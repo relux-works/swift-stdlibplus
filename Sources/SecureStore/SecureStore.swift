@@ -12,9 +12,11 @@ public class SecureStore: ISecureStore {
     private let encoder: JSONEncoder = .init()
 
     public init (
-            groupId: String
+            groupId: String,
+            synchronizable: Bool
     ) {
         self.keychain = Keychain(service: groupId)
+                .synchronizable(synchronizable)
     }
 
     public func getValue<T: Decodable>(key: String) -> Result<T?, SecureStoreError> {
