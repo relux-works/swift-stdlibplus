@@ -3,6 +3,7 @@ import Foundation
 public protocol ISecureStore {
     func getValue<T: Decodable>(key: String) ->  Result<T?, SecureStoreError>
     func setValue<T: Encodable>(key: String, value: T?) -> Result<Void, SecureStoreError>
+    func removeValue(key: String) -> Result<Void, SecureStoreError>
 }
 
 public class SecureStore: ISecureStore {
@@ -20,37 +21,40 @@ public class SecureStore: ISecureStore {
     }
 
     public func getValue<T: Decodable>(key: String) -> Result<T?, SecureStoreError> {
-        guard let rawValue = keychain[key] else {
+        guard let rawValue = keychain[data: key] else {
             return .success(nil)
         }
 
         do {
-            let decodedValue = try self.decoder.decode(T.self, from: Data(rawValue.utf8))
+            let decodedValue = try self.decoder.decode(T.self, from: rawValue)
             return .success(decodedValue)
         } catch {
-            try? keychain.remove(key)
-            return .failure(.init(sender: self, message: "failed to get value for key: \(key)", error: error))
+            let _ = removeValue(key: key)
+            return .failure(.failedToGetValue(key: key, message: error.asString))
         }
     }
 
     public func setValue<T: Encodable>(key: String, value: T?) -> Result<Void, SecureStoreError> {
+        let removeRes = removeValue(key: key)
+        switch removeRes {
+        case .success: break
+        case .failure: return removeRes
+        }
+
         do {
-            guard let value = value else {
-                try keychain.remove(key)
-                return .failure(.init(sender: self, message: "failed to remove value for key: \(key)"))
-            }
-
-            let rawValue = try encoder.encode(value)
-
-            guard let encodedValue = String(data: rawValue, encoding: .utf8) else {
-                return .failure(.init(sender: self, message: "failed to encode value for key: \(key)"))
-            }
-
-            keychain[key] = encodedValue
-
+            keychain[data: key] = try encoder.encode(value)
             return .success(())
         } catch {
-            return .failure(.init(sender: self, message: "failed to set value for key: \(key)", error: error))
+            return .failure(.failedToSetValue(key: key, message: error.asString))
+        }
+    }
+
+    public func removeValue(key: String) -> Result<Void, SecureStoreError> {
+        do {
+            try keychain.remove(key)
+            return .success(())
+        } catch {
+            return .failure(.failedToRemoveValue(key: key, message: error.asString))
         }
     }
 }
