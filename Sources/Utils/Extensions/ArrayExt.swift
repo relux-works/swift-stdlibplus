@@ -1,5 +1,26 @@
 import Foundation
 
+public extension Collection {
+    func groupBy<G: Hashable>(groupClosure: (Element) -> G) -> [G: [Element]] {
+        Dictionary(grouping: self, by: groupClosure)
+    }
+
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+
+    var hasMany: Bool {
+        self.count > 1
+    }
+    var hasOne: Bool {
+        self.count == 1
+    }
+    var isNotEmpty: Bool {
+        !isEmpty
+    }
+}
+
 public extension Array {
     mutating func insert(_ elem: Element) where Element: Equatable {
         self.append(elem)
@@ -54,48 +75,11 @@ public extension Array {
         return result
     }
 
-    func groupBy<G: Hashable>(groupClosure: (Element) -> G) -> [G: [Element]] {
-        Dictionary(grouping: self, by: groupClosure)
-    }
 
-    var hasMany: Bool {
-        self.count > 1
-    }
-    var hasOne: Bool {
-        self.count == 1
-    }
-    var isNotEmpty: Bool {
-        !isEmpty
-    }
     func isLast(_ elem: Element) -> Bool where Element: Equatable {
         self.last == elem
     }
     func isFirst(_ elem: Element) -> Bool where Element: Equatable {
         self.first == elem
-    }
-}
-
-
-public extension Set {
-    var isNotEmpty: Bool {
-        !isEmpty
-    }
-
-    func groupBy<G: Hashable>(groupClosure: (Element) -> G) -> [G: [Element]] {
-        Dictionary(grouping: self, by: groupClosure)
-    }
-}
-
-
-public extension Dictionary {
-    var isNotEmpty: Bool {
-        !isEmpty
-    }
-}
-
-public extension Collection {
-    /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
     }
 }
