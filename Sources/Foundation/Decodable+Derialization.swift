@@ -11,9 +11,9 @@ public extension Decodable {
 
 
 public extension Decodable {
-    init?(json: Data?) {
-        if json != nil,
-           let instance = Self.decode(from: json) {
+    init?(fromJsonData: Data?) {
+        if fromJsonData != nil,
+           let instance = Self.decode(from: fromJsonData) {
             self = instance
         } else {
             return nil
