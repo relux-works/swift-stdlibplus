@@ -1,5 +1,12 @@
 import Foundation
 
+extension ArraySlice {
+    public var asArray: Array<Element> {
+        Array(self)
+    }
+}
+
+
 public extension Collection {
     func groupBy<G: Hashable>(groupClosure: (Element) -> G) -> [G: [Element]] {
         Dictionary(grouping: self, by: groupClosure)
