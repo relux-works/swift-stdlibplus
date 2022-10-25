@@ -1,16 +1,7 @@
-import SwiftUI
-
-public extension CGFloat {
-    init?(_ val: Double?) {
-        guard let v = val else { return nil }
-        self = v
-    }
-}
+#if canImport(Darwin)
+import Darwin
 
 public extension Double {
-    var asCGFloat: CGFloat {
-        CGFloat(self)
-    }
     var asFloat: Float {
         Float(self)
     }
@@ -31,3 +22,5 @@ public extension Double {
         Int(self)
     }
 }
+
+#endif

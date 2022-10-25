@@ -5,3 +5,4 @@ public extension Error {
         "\(self) - \(self.localizedDescription)"
     }
 }
+

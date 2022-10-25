@@ -3,34 +3,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-utils",
+    name: "swift-libplus",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v13),
+		.macOS(.v11),
+		.tvOS(.v12),
+		.watchOS(.v4),
+		.macCatalyst(.v13)
     ],
     products: [
         .library(
-            name: "SwiftUtils",
-            type: .dynamic,
-            targets: ["SwiftUtils"]
+            name: "swiftlibplus",
+            type: .static,
+            targets: ["SwiftPlus"]
         )
     ],
     targets: [
         .target(
-            name: "SwiftUtils",
-            path: "Sources",
-            exclude: [
-                "PhoneUtils/PhoneNumberKit/Resources/Metadata.md",
-                "PhoneUtils/PhoneNumberKit/Resources/PhoneNumberMetadata.xml"
-            ],
-            resources: [.copy("PhoneUtils/PhoneNumberKit/Resources/PhoneNumberMetadata.json")],
-            linkerSettings: [
-                .linkedFramework("CoreTelephony")
-            ]
-        ),
-        .testTarget(
-            name: "SwiftUtilsTests",
-            dependencies: ["SwiftUtils"],
-            path: "Tests"
-        ),
+            name: "SwiftPlus",
+            path: "Sources"
+        )
     ]
 )
