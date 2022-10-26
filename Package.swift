@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-libplus",
+    name: "swift-stdlibplus",
     platforms: [
         .iOS(.v13),
 		.macOS(.v11),
@@ -13,7 +13,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "swiftlibplus",
+            name: "swift_stdlibplus",
             type: .static,
             targets: ["SwiftPlus"]
         )
