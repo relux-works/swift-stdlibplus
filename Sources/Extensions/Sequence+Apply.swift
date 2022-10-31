@@ -3,4 +3,9 @@ public extension Sequence where Element: Any {
         closure(self)
         return self
     }
+
+    func apply(_ closure: (Self)async ->()) async -> Self {
+        await closure(self)
+        return self
+    }
 }
