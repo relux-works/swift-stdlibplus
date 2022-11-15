@@ -10,6 +10,12 @@ public extension StringProtocol where Self == String {
     }
 }
 
+public extension StringProtocol where Self == String {
+	static var forwardSlash: String {
+		return "/"
+	}
+}
+
 public extension String {
     var removingWhitespaces: String {
         components(separatedBy: .whitespaces).joined()
