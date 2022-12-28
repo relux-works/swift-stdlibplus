@@ -15,3 +15,13 @@ public extension Bool {
         self
     }
 }
+
+public extension Optional where Wrapped == Bool {
+    var positive: Bool {
+        self?.positive ?? false
+    }
+
+    var negative: Bool {
+        self?.not ?? false
+    }
+}
