@@ -4,6 +4,7 @@ public extension Sequence where Element: Any {
         return self
     }
 
+	@discardableResult
     func apply(_ closure: (Self)async ->()) async -> Self {
         await closure(self)
         return self
