@@ -26,6 +26,23 @@ public extension Collection {
     }
 }
 
+public extension Array where Element: Equatable {
+	func unique<T: Equatable>(by property: (Element) -> T) -> [Element] {
+		var uniqueElements: [Element] = []
+		var uniqueProperties: [T] = []
+		
+		for element in self {
+			let elementProperty = property(element)
+			if !uniqueProperties.contains(elementProperty) {
+				uniqueElements.append(element)
+				uniqueProperties.append(elementProperty)
+			}
+		}
+		
+		return uniqueElements
+	}
+}
+
 public extension Array {
     mutating func insert(_ elem: Element) where Element: Equatable {
         self.append(elem)
