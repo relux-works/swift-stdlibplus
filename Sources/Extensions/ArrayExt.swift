@@ -43,6 +43,22 @@ public extension Array where Element: Equatable {
 	}
 }
 
+public extension Array where Element: Hashable {
+	
+	/// Compare arrays for their content without taking into account the order of elements.
+	///
+	/// Assumes that there are no duplicate elements within the arrays
+	func contentEqualIgnoringOrder(_ otherArray: [Element]) -> Bool {
+		// Create sets from both arrays
+		let selfSet = Set(self)
+		let otherSet = Set(otherArray)
+		
+		// Compare the sets for equality
+		return selfSet == otherSet
+	}
+}
+
+
 public extension Array {
     mutating func insert(_ elem: Element) where Element: Equatable {
         self.append(elem)
