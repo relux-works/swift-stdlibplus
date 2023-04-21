@@ -26,7 +26,7 @@ public extension Collection {
     }
 }
 
-public extension Array where Element: Equatable {
+public extension Array  {
 	func unique<T: Equatable>(by property: (Element) -> T) -> [Element] {
 		var uniqueElements: [Element] = []
 		var uniqueProperties: [T] = []
