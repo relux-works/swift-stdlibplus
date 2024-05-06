@@ -20,10 +20,8 @@ public struct OptionSetIterator<Element: OptionSet>: IteratorProtocol where Elem
     }
 }
 
-public extension OptionSet where Self.RawValue == Int {
-	func makeIterator() -> OptionSetIterator<Self> {
+extension OptionSet where Self.RawValue == Int {
+    public func makeIterator() -> OptionSetIterator<Self> {
         return OptionSetIterator(element: self)
     }
 }
-
-public typealias IterableOptionSet = OptionSet & Sequence

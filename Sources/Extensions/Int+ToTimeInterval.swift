@@ -1,4 +1,12 @@
- public extension Int {
+public typealias MinsAndHours = (m: UInt, h: UInt)
+
+public extension Double {
+    func secondsAsMinutesAndHours(_ roundRule: FloatingPointRoundingRule) -> MinsAndHours {
+        (self / 60).rounded(roundRule).asUIntRounded.asMinutesAndHours
+    }
+}
+
+public extension Int {
      enum SecondsToStringPresentation {
          case secondsOnly
          case minutes
@@ -38,6 +46,13 @@ public extension UInt {
         case dynamic
     }
 
+    var asMinutesAndHours: MinsAndHours {
+        (
+            m: (self%3600)%60,
+            h: (self%3600)/60
+        )
+    }
+
     func secondsToString(_ presentation: SecondsToStringPresentation) -> String {
         let hours = self/3600
         let minutes = (self%3600)/60
@@ -47,7 +62,7 @@ public extension UInt {
         case .secondsOnly:
             return self.description
         case .minutes:
-            return String(format:"%02i:%02i", minutes, seconds)
+            return String(format:"%02i:%02i", (self/60), seconds)
         case .hours:
             return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
         case .dynamic:

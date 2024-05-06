@@ -25,6 +25,12 @@ public extension String {
     }
 }
 
+public extension Optional where Wrapped == String {
+    var isNilOrEmpty: Bool {
+        self?.isEmpty ?? true
+    }
+}
+
 public extension String {
     func cleanHtml() -> String {
         self.replacingOccurrences(
@@ -46,6 +52,12 @@ public extension String {
 
     var isNotEmpty: Bool {
         !self.isEmpty
+    }
+
+    var isWhiteSpaceOrEmpty: Bool {
+        self
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .isEmpty
     }
 }
 

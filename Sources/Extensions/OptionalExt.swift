@@ -13,3 +13,30 @@ public extension Optional {
         }
     }
 }
+
+
+public extension Optional {
+    enum OptionalErr: Error {
+        case failedToUnwrap
+    }
+
+    var forceUnwrap: Wrapped { self! }
+
+    var value: Wrapped {
+        get throws {
+            guard let value = self else {
+                throw OptionalErr.failedToUnwrap
+            }
+
+            return value
+        }
+    }
+
+    func orThrow(_ errorExpression: @autoclosure () -> Error) throws -> Wrapped {
+        guard let value = self else {
+            throw errorExpression()
+        }
+
+        return value
+    }
+}

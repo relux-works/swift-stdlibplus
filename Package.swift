@@ -13,8 +13,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "swift_stdlibplus",
-            type: .static,
+            name: "SwiftPlus",
             targets: ["SwiftPlus"]
         )
     ],

@@ -4,12 +4,13 @@ extension ArraySlice {
     }
 }
 
+public extension Sequence {
+    func groupBy<G: Hashable>(groupClosure : (Element) -> G) -> [G: [Element]] {
+        Dictionary (grouping: self, by: groupClosure)
+    }
+}
 
 public extension Collection {
-    func groupBy<G: Hashable>(groupClosure: (Element) -> G) -> [G: [Element]] {
-        Dictionary(grouping: self, by: groupClosure)
-    }
-
     /// Returns the element at the specified index if it is within bounds, otherwise nil.
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
@@ -26,39 +27,6 @@ public extension Collection {
     }
 }
 
-public extension Array  {
-	func unique<T: Equatable>(by property: (Element) -> T) -> [Element] {
-		var uniqueElements: [Element] = []
-		var uniqueProperties: [T] = []
-		
-		for element in self {
-			let elementProperty = property(element)
-			if !uniqueProperties.contains(elementProperty) {
-				uniqueElements.append(element)
-				uniqueProperties.append(elementProperty)
-			}
-		}
-		
-		return uniqueElements
-	}
-}
-
-public extension Array where Element: Hashable {
-	
-	/// Compare arrays for their content without taking into account the order of elements.
-	///
-	/// Assumes that there are no duplicate elements within the arrays
-	func contentEqualIgnoringOrder(_ otherArray: [Element]) -> Bool {
-		// Create sets from both arrays
-		let selfSet = Set(self)
-		let otherSet = Set(otherArray)
-		
-		// Compare the sets for equality
-		return selfSet == otherSet
-	}
-}
-
-
 public extension Array {
     mutating func insert(_ elem: Element) where Element: Equatable {
         self.append(elem)
@@ -70,6 +38,16 @@ public extension Array {
 
     mutating func upsert(_ elem: Element) where Element: Equatable {
         if let index = self.firstIndex(of: elem) {
+            self.append(elem)
+            self.swapAt(index, self.count - 1)
+            self.removeLast()
+        } else {
+            self.append(elem)
+        }
+    }
+
+    mutating func upsertByIdentity(_ elem: Element) where Element: Identifiable {
+        if let index = self.firstIndex(where: { $0.id == elem.id }) {
             self.append(elem)
             self.swapAt(index, self.count - 1)
             self.removeLast()
@@ -107,12 +85,8 @@ public extension Array {
     }
 
     func concat(_ another: Array) -> [Element] {
-        var result: [Element] = []
-        result.append(contentsOf: self)
-        result.append(contentsOf: another)
-        return result
+        self + another
     }
-
 
     func isLast(_ elem: Element) -> Bool where Element: Equatable {
         self.last == elem
