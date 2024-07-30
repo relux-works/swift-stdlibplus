@@ -1,6 +1,4 @@
-import Foundation
-
-/// An async lock implemented using async semaphore.
+/// An async lock implemented using Swift Actor.
 ///
 /// This lock allows you to create critical sections in your asynchronous code.
 public actor AsyncLock {
@@ -11,7 +9,7 @@ public actor AsyncLock {
 	private var waitingTasks: [CheckedContinuation<Void, Never>] = []
 	
 	/// Acquires the lock, suspending the current task until the lock becomes available.
-	public func lock() async {
+	private func lock() async {
 		if isLocked {
 			await withCheckedContinuation { continuation in
 				waitingTasks.append(continuation)
@@ -22,7 +20,7 @@ public actor AsyncLock {
 	}
 	
 	/// Releases the lock, allowing other tasks to acquire it.
-	public func unlock() {
+	private func unlock() {
 		if waitingTasks.isEmpty {
 			isLocked = false
 		} else {
