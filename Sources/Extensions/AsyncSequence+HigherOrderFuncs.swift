@@ -1,5 +1,3 @@
-import Foundation
-
 // foreach
 public extension AsyncSequence {
     func forEach(

@@ -11,10 +11,14 @@ public extension Sequence {
 }
 
 public extension Collection {
-    /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
+	/// Returns the element at the specified index if it is within bounds, otherwise nil.
+	subscript(safe index: Index) -> Element? {
+		guard startIndex <= index && index < endIndex else { return nil }
+		return self[index]
+	}
+}
+
+public extension Collection {
 
     var hasMany: Bool {
         self.count > 1

@@ -1,5 +1,3 @@
-import Foundation
-
 extension Sequence {
     @inlinable public func separate(by expression: (Self.Element) throws -> Bool) rethrows -> (positive: [Self.Element], negative: [Self.Element]) {
         var result: (

@@ -1,5 +1,3 @@
-import Foundation
-
 public struct Price<C: ICurrency> {
     public let value: Double
     public let currency: C

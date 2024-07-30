@@ -1,5 +1,3 @@
-import Foundation
-
 public enum MaybeData<T, E> where E: Error {
     case initial(_ stub: T? = .none)
     case success(_ result: T)

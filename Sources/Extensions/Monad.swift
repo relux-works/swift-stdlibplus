@@ -1,5 +1,3 @@
-import Foundation
-
 public struct Monad<T> {
     public let value : T
 
