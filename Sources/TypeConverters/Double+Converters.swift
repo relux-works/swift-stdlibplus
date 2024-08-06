@@ -29,7 +29,8 @@ public extension Double {
 	///   **Be cautious with negative values, as they will be converted to a UInt after rounding,
 	///   which may result in unexpected large values**.
 	var asUIntRounded: UInt {
-		UInt(lround(self))
+        guard self > 0 else { return 0 }
+		return UInt(lround(self))
 	}
 	
 	/// Truncates the double to an unsigned integer (UInt).
@@ -37,7 +38,8 @@ public extension Double {
 	///   For example, 3.9 becomes 3. If the double is negative, it will be converted directly
 	///   to UInt, which can lead to unexpected large values.
 	var asUIntTruncated: UInt {
-		UInt(self)
+        guard self > 0 else { return 0 }
+        return UInt(self)
 	}
 	
 	/// Converts the double to an Int, truncating any fractional part.
