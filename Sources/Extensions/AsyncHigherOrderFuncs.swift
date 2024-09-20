@@ -349,3 +349,192 @@ public extension Sequence {
         }
     }
 }
+
+// MARK: - AllSatisfy
+public extension Sequence {
+    /// Returns a Boolean value indicating whether every element of the sequence
+    /// satisfies the given asynchronous predicate.
+    ///
+    /// The predicate calls will be performed in order, by waiting for
+    /// each call to complete before proceeding with the next one. If
+    /// any of the predicate calls throw an error, then the iteration
+    /// will be terminated and the error rethrown.
+    ///
+    /// - parameter predicate: An asynchronous closure that takes an element of the sequence as its argument
+    ///   and returns a Boolean value that indicates whether the passed element satisfies a condition.
+    /// - returns: `true` if every element of the sequence satisfies the given predicate; otherwise, `false`.
+    /// - throws: Rethrows any error thrown by the passed predicate.
+    func asyncAllSatisfy(
+        _ predicate: (Element) async throws -> Bool
+    ) async rethrows -> Bool {
+        for element in self {
+            guard try await predicate(element) else {
+                return false
+            }
+        }
+        return true
+    }
+
+/// Returns a Boolean value indicating whether every element of the sequence
+/// satisfies the given asynchronous predicate.
+///
+/// The predicate calls will be performed concurrently, but the call
+/// to this function won't return until all of the predicate calls
+/// have completed or until a `false` result is found.
+///
+/// - parameter priority: Any specific `TaskPriority` to assign to
+///   the async tasks that will perform the predicate calls. The
+///   default is `nil` (meaning that the system picks a priority).
+/// - parameter predicate: An asynchronous closure that takes an element of the sequence as its argument
+///   and returns a Boolean value that indicates whether the passed element satisfies a condition.
+/// - returns: `true` if every element of the sequence satisfies the given predicate; otherwise, `false`.
+    func concurrentAllSatisfy(
+        withPriority priority: TaskPriority? = nil,
+        _ predicate: @escaping (Element) async -> Bool
+    ) async -> Bool {
+        await withTaskGroup(of: Bool.self) { group in
+            for element in self {
+                group.addTask(priority: priority) {
+                    await predicate(element)
+                }
+            }
+
+            for await result in group {
+                if !result {
+                    group.cancelAll()
+                    return false
+                }
+            }
+
+            return true
+        }
+    }
+
+
+/// Returns a Boolean value indicating whether every element of the sequence
+/// satisfies the given asynchronous predicate.
+///
+/// The predicate calls will be performed concurrently, but the call
+/// to this function won't return until all of the predicate calls
+/// have completed or until a `false` result is found. If any of the predicate calls throw an error,
+/// then the first error will be rethrown once all predicate calls have completed.
+///
+/// - parameter priority: Any specific `TaskPriority` to assign to
+///   the async tasks that will perform the predicate calls. The
+///   default is `nil` (meaning that the system picks a priority).
+/// - parameter predicate: An asynchronous closure that takes an element of the sequence as its argument
+///   and returns a Boolean value that indicates whether the passed element satisfies a condition.
+/// - returns: `true` if every element of the sequence satisfies the given predicate; otherwise, `false`.
+/// - throws: Rethrows any error thrown by the passed predicate.
+    func concurrentAllSatisfy(
+        withPriority priority: TaskPriority? = nil,
+        _ predicate: @escaping (Element) async throws -> Bool
+    ) async rethrows -> Bool {
+        try await withThrowingTaskGroup(of: Bool.self) { group in
+            for element in self {
+                group.addTask(priority: priority) {
+                    try await predicate(element)
+                }
+            }
+
+            for try await result in group {
+                if !result {
+                    group.cancelAll()
+                    return false
+                }
+            }
+
+            return true
+        }
+    }
+}
+
+// MARK: - Filter
+public extension Sequence {
+/// Filter the sequence using an async predicate.
+///
+/// The predicate calls will be performed in order, by waiting for
+/// each call to complete before proceeding with the next one. If
+/// any of the predicate calls throw an error, then the iteration
+/// will be terminated and the error rethrown.
+///
+/// - parameter isIncluded: The predicate to run on each element.
+/// - returns: An array containing only the elements that satisfy the given predicate.
+/// - throws: Rethrows any error thrown by the passed predicate.
+    func asyncFilter(
+        _ isIncluded: (Element) async throws -> Bool
+    ) async rethrows -> [Element] {
+        var result = [Element]()
+
+        for element in self {
+            if try await isIncluded(element) {
+                result.append(element)
+            }
+        }
+
+        return result
+    }
+
+/// Filter the sequence using an async predicate.
+///
+/// The predicate calls will be performed concurrently, but the call
+/// to this function won't return until all of the predicate calls
+/// have completed.
+///
+/// - parameter priority: Any specific `TaskPriority` to assign to
+///   the async tasks that will perform the predicate calls. The
+///   default is `nil` (meaning that the system picks a priority).
+/// - parameter isIncluded: The predicate to run on each element.
+/// - returns: An array containing only the elements that satisfy the given predicate.
+    func concurrentFilter(
+        withPriority priority: TaskPriority? = nil,
+        _ isIncluded: @escaping (Element) async -> Bool
+    ) async -> [Element] {
+        let tasks = map { element in
+            Task(priority: priority) {
+                await (element, isIncluded(element))
+            }
+        }
+
+        return await tasks.asyncFilter { task in
+            let (_, included) = await task.value
+            return included
+        }.asyncMap { task in
+            let (element, _) = await task.value
+            return element
+        }
+    }
+
+/// Filter the sequence using an async predicate.
+///
+/// The predicate calls will be performed concurrently, but the call
+/// to this function won't return until all of the predicate calls
+/// have completed. If any of the predicate calls throw an error,
+/// then the first error will be rethrown once all predicate calls have
+/// completed.
+///
+/// - parameter priority: Any specific `TaskPriority` to assign to
+///   the async tasks that will perform the predicate calls. The
+///   default is `nil` (meaning that the system picks a priority).
+/// - parameter isIncluded: The predicate to run on each element.
+/// - returns: An array containing only the elements that satisfy the given predicate.
+/// - throws: Rethrows any error thrown by the passed predicate.
+    func concurrentFilter(
+        withPriority priority: TaskPriority? = nil,
+        _ isIncluded: @escaping (Element) async throws -> Bool
+    ) async rethrows -> [Element] {
+        let tasks = map { element in
+            Task(priority: priority) {
+                try await (element, isIncluded(element))
+            }
+        }
+
+        return try await tasks.asyncFilter { task in
+            let (_, included) = try await task.value
+            return included
+        }.asyncMap { task in
+            let (element, _) = try await task.value
+            return element
+        }
+    }
+}
