@@ -39,6 +39,16 @@ public extension ActiveStatus {
         }
     }
 }
+
+public extension ActiveStatus {
+    var inProgress: Bool {
+        switch self {
+            case .activating, .deactivating: true
+            case .active, .inactive: false
+        }
+    }
+}
+
 extension ActiveStatus: Codable {}
 
 extension ActiveStatus: Identifiable {
