@@ -1,4 +1,4 @@
-public enum MaybeData<T, E> where E: Error {
+public enum MaybeData<T, E>: Sendable where E: Error, T: Sendable {
     case initial(_ stub: T? = .none)
     case success(_ result: T)
     case failure(_ error: E)

@@ -26,7 +26,11 @@ public extension UInt {
 	var asInt: Int {
 		Int(self)
 	}
-	
+
+    func asInt(overflowDefault: Int = Int.max) -> Int {
+        (try? self.asIntOrThrow()) ?? overflowDefault
+    }
+
 	/// Safely converts the unsigned integer (UInt) to an Int.
 	/// - Throws: A `ConversionError.overflow` if the UInt value exceeds the range of valid Int values.
 	/// - Returns: An Int representation of the unsigned integer.

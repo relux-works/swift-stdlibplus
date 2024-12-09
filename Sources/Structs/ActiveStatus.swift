@@ -1,5 +1,5 @@
 
-public enum ActiveStatus: String {
+public enum ActiveStatus: String, Sendable {
     case inactive
     case activating
     case active

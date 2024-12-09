@@ -115,7 +115,7 @@ public extension Sequence {
     func concurrentMap<T>(
             withPriority priority: TaskPriority? = nil,
             _ transform: @escaping (Element) async -> T
-    ) async -> [T] {
+    ) async -> [T] where T: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 await transform(element)
@@ -146,7 +146,7 @@ public extension Sequence {
     func concurrentMap<T>(
             withPriority priority: TaskPriority? = nil,
             _ transform: @escaping (Element) async throws -> T
-    ) async rethrows -> [T] {
+    ) async rethrows -> [T] where T: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 try await transform(element)
@@ -177,7 +177,7 @@ public extension Sequence {
     /// - throws: Rethrows any error thrown by the passed closure.
     func asyncCompactMap<T>(
             _ transform: (Element) async throws -> T?
-    ) async rethrows -> [T] {
+    ) async rethrows -> [T] where T: Sendable {
         var values = [T]()
 
         for element in self {
@@ -209,7 +209,7 @@ public extension Sequence {
     func concurrentCompactMap<T>(
             withPriority priority: TaskPriority? = nil,
             _ transform: @escaping (Element) async -> T?
-    ) async -> [T] {
+    ) async -> [T] where T: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 await transform(element)
@@ -242,7 +242,7 @@ public extension Sequence {
     func concurrentCompactMap<T>(
             withPriority priority: TaskPriority? = nil,
             _ transform: @escaping (Element) async throws -> T?
-    ) async rethrows -> [T] {
+    ) async rethrows -> [T] where T: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 try await transform(element)
@@ -274,7 +274,7 @@ public extension Sequence {
     /// - throws: Rethrows any error thrown by the passed closure.
     func asyncFlatMap<T: Sequence>(
             _ transform: (Element) async throws -> T
-    ) async rethrows -> [T.Element] {
+    ) async rethrows -> [T.Element] where T: Sendable {
         var values = [T.Element]()
 
         for element in self {
@@ -303,7 +303,7 @@ public extension Sequence {
     func concurrentFlatMap<T: Sequence>(
             withPriority priority: TaskPriority? = nil,
             _ transform: @escaping (Element) async -> T
-    ) async -> [T.Element] {
+    ) async -> [T.Element] where T: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 await transform(element)
@@ -337,7 +337,7 @@ public extension Sequence {
     func concurrentFlatMap<T: Sequence>(
             withPriority priority: TaskPriority? = nil,
             _ transform: @escaping (Element) async throws -> T
-    ) async rethrows -> [T.Element] {
+    ) async rethrows -> [T.Element] where T: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 try await transform(element)
@@ -489,7 +489,7 @@ public extension Sequence {
     func concurrentFilter(
         withPriority priority: TaskPriority? = nil,
         _ isIncluded: @escaping (Element) async -> Bool
-    ) async -> [Element] {
+    ) async -> [Element] where Element: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 await (element, isIncluded(element))
@@ -522,7 +522,7 @@ public extension Sequence {
     func concurrentFilter(
         withPriority priority: TaskPriority? = nil,
         _ isIncluded: @escaping (Element) async throws -> Bool
-    ) async rethrows -> [Element] {
+    ) async rethrows -> [Element] where Element: Sendable {
         let tasks = map { element in
             Task(priority: priority) {
                 try await (element, isIncluded(element))
