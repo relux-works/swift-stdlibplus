@@ -28,7 +28,9 @@ public actor AsyncLock {
 			continuation.resume()
 		}
 	}
-	
+
+    public init() {}
+
 	/// Executes a given closure while holding the lock.
 	///
 	/// This method ensures that the lock is released when the closure completes, even if the closure throws an error.
@@ -40,4 +42,10 @@ public actor AsyncLock {
 		defer { unlock() }
 		return try await work()
 	}
+    
+    public func withLock<T>(_ work: () async -> T) async -> T {
+        await lock()
+        defer { unlock() }
+        return await work()
+    }
 }
