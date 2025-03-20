@@ -27,3 +27,6 @@ extension MaybeData: IAnimatableValue {
         }
     }
 }
+
+extension MaybeData: Equatable where T: Equatable, E: Equatable {}
+extension MaybeData: Hashable where T: Hashable, E: Hashable {}
